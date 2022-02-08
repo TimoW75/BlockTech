@@ -1,4 +1,4 @@
 # BlockTech
 
 
-Dit is een stukje tekst en meer met helper
+Dit is een stukje tekst en meer met helper na startup
