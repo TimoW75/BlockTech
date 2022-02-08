@@ -1,4 +1,5 @@
 # BlockTech
 
+Vandaag bij Project Tech github gelinkt aan de terminal en gezorgd dat ik de readme kan update via de terminal.
 
-Dit is een stukje tekst en meer met helper na startup
+Bij BE: Package toegevoegd via terminal
