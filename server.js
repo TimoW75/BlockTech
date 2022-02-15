@@ -2,7 +2,11 @@ const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 3000
 
+
 app.use('/static',express.static('static'))
+app.set('view engine', 'hbs');
+app.set('views', 'view');
+
 
 app.get('/', (req, res) => { 
     res.send('<h1>Hello World!</h1>')
@@ -10,7 +14,7 @@ app.get('/', (req, res) => {
     })
 
 app.get('/profiel', (req, res) => { 
-    res.send('<h1>Profiel</h1>')
+    res.render('profiel.hbs')
     res.status(200)
 })
 
