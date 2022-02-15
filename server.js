@@ -5,7 +5,7 @@ const express = require('express')
     .get('/', onhome)
     .get('/profiel', onprofiel)
     .get('/login', onlogin)
-    .listen(8000)
+    .listen(3000)
     
 function onhome(req, res) {
     res.send('<h1>Hello World!</h1>')
