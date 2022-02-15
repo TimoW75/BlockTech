@@ -1,8 +1,9 @@
 const express = require('express')
+const app = express()
+const PORT = process.env.PORT || 3000
 
-
- express()
-    .use('/static',express.static(‘static’))
+ app()
+    .use('/static',express.static('static'))
 
     .get('/', (req, res) => { 
         res.send('<h1>Hello World!</h1>')
@@ -19,9 +20,8 @@ const express = require('express')
         res.status(200)
     })
     
-    .listen(3000)
-    
+    .listen(PORT)
 
-    // function notFound(req, res) {
-    //     res.status(404)
-    //     }
+    .get('*', (req, res) => {
+        res.send('Not found..')
+    })
