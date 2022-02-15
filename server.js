@@ -19,9 +19,9 @@ const PORT = process.env.PORT || 3000
         res.send('<h1>Library</h1>')
         res.status(200)
     })
-    
-    .listen(PORT)
 
     .get('*', (req, res) => {
         res.send('Not found..')
     })
+
+.listen(PORT)

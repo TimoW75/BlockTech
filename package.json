@@ -2,7 +2,7 @@
   "name": "blocktech",
   "version": "1.0.0",
   "description": "Dit is een stukje tekst en meer met helper na startup",
-  "main": "index.js",
+  "main": "server.js",
 
   "scripts": {
     "start": "nodemon server.js"
