@@ -1,0 +1,93 @@
+/*********************************************/
+/* DIT STUKJE IS VOOR DE FILTER PAGINA */
+/*********************************************/
+
+#filters{
+    background-color: #0a0a0a;
+}
+
+.filtergrid section{
+    width: 180px;
+    height: 250px;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+.filtergrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 60%;   
+}
+
+.urban{
+    background-image: url(/static/images/urban.jpg);
+    background-size: contain;
+}
+
+.landscape{
+    background-image: url(/static/images/landscape.jpg);
+    background-size: cover;
+}
+
+/*********************************************/
+/* DIT STUKJE IS VOOR DE PROFIEL PAGINA */
+/*********************************************/
+
+#profilepage{
+    background-color: #0a0a0a;
+}
+
+#profile{
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.profiletext{
+    text-align: center;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2em;
+    height: 40px;
+    margin: 0px;
+}
+
+.profileinfo{
+    text-align: center;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1em;
+    margin: 0px;
+}
+
+#info{
+    margin-bottom: 50px;
+}
+
+#pfpic{
+    width: 175px;
+    grid-row-start: 1;
+    margin: auto;  
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+
+#mystyle{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+    color: white;
+}
+
+hr{
+    border: 2px solid white;
+}
