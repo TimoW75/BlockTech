@@ -21,18 +21,12 @@ app.get('/', (req, res) => {
             username: "Nico di Angelo",
             email: "nicodiangelo@gmail.com",
             follow: "114 followers   98 following"
-
         }
 
 
     })
     res.status(200)
     })
-
-// app.get('/profiel', (req, res) => { 
-//     res.render('profiel.hbs')
-//     res.status(200)
-// })
 
 app.get('/style', (req, res) => { 
     res.render('filter.hbs')
