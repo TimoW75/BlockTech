@@ -11,13 +11,13 @@
 <body id="profilepage">
 
     <section id="profile">
-        <h1 class="profiletext"> {{profile.username}}</h1>
+        <h1 class="profiletext"> {{user.username}}</h1>
         <img src="/static/images/nico.png" id="pfpic" alt="profile picture">
     </section>  
 
     <section id="info">
-        <h2 class="profileinfo"> {{profile.email}}</h2>
-        <h2 class="profileinfo"> {{profile.follow}}</h2>
+        <h2 class="profileinfo"> {{user.email}}</h2>
+        <h2 class="profileinfo"> {{user.follow}}</h2>
     </section>  
     
     <section class="filtergrid">
@@ -31,23 +31,25 @@
             <p>Landscape Photography</p>
         </section> 
 
-        <section class="urban">
-            <p>Urban Photography</p>
+        <section class="portrait">
+            <p>Portrait Photography</p>
         </section>    
 
-        <section class="landscape">
-            <p>Landscape Photography</p>
+        <section class="architecture">
+            <p>Architecture Photography</p>
         </section>      
 
-        <section class="urban">
-            <p>Urban Photography</p>
+        <section class="astro">
+            <p>Astro Photography</p>
         </section>    
 
-        <section class="landscape">
-            <p>Landscape Photography</p>
+        <section class="bw">
+            <p>Black and White Photography</p>
         </section>  
 
     </section> 
+
+    <script src="../static/js/index.js"></script>
 </body>
 
 </html>

@@ -2,20 +2,34 @@
 /* DIT STUKJE IS VOOR DE FILTER PAGINA */
 /*********************************************/
 
+
+
+h1{
+    text-align: center;
+    color: white;
+}
+
 #filters{
     background-color: #0a0a0a;
 }
 
+
+/*********************************************/
+/* Universal */
+/*********************************************/
+
+
+
 .filtergrid section{
-    width: 180px;
-    height: 250px;
     border-radius: 30px;
     margin: 10px;
 }
 
 .filtergrid{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+    text-align: center;
+    
 }
 
 p{
@@ -23,18 +37,44 @@ p{
     color: white;
     font-size: 1.5em;
     font-weight: bold;
-    text-align: center;
-    padding-top: 60%;   
+    padding-top: 30%;
 }
 
 .urban{
     background-image: url(/static/images/urban.jpg);
-    background-size: contain;
+    background-size: cover;
+    height: 200px;
 }
 
 .landscape{
     background-image: url(/static/images/landscape.jpg);
     background-size: cover;
+    height: 250px;
+}
+
+.portrait{
+    background-image: url(/static/images/portrait.jpg);
+    background-size: cover;
+    height: 280px;
+}
+
+.architecture{
+    background-image: url(/static/images/architecture.jpg);
+    background-size: cover;
+    height: 220px;
+}
+
+
+.astro{
+    background-image: url(/static/images/astro.jpg);
+    background-size: cover;
+    height: 245px;
+}
+
+.bw{
+    background-image: url(/static/images/bw.jpg);
+    background-size: cover;
+    height: 285px;
 }
 
 /*********************************************/
@@ -86,8 +126,4 @@ p{
     grid-column-end: 3;
     text-align: center;
     color: white;
-}
-
-hr{
-    border: 2px solid white;
 }

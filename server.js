@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 3000
 const Handlebars = require("handlebars");
+const controller = require('./controller/indexcontroller')
 
 
 
@@ -15,16 +16,7 @@ app.set('views', 'view');
 
 
 app.get('/', (req, res) => { 
-    res.render('profiel.hbs', {
-        profile: 
-        {
-            username: "Nico di Angelo",
-            email: "nicodiangelo@gmail.com",
-            follow: "114 followers   98 following"
-        }
-
-
-    })
+    res.render('profiel.hbs', controller.user )
     res.status(200)
     })
 
