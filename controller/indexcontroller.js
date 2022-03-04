@@ -1,5 +1,4 @@
 
-
 const user = (
      {
         username: "Nico di Angelo",
@@ -17,6 +16,5 @@ const user2 = (
    }
 )
     
-
 exports.user = {user, user2};
 
