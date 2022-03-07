@@ -5,8 +5,6 @@ const Handlebars = require("handlebars");
 const controller = require('./controller/indexcontroller')
 
 
-
-
 /*********************************************/
 /*Server enzo*/
 /*********************************************/
