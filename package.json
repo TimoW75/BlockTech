@@ -4,11 +4,9 @@
   "description": "Dit is een stukje tekst en meer met helper na startup",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js & npm run scss",
+    "start": "nodemon server.js",
     "lint": "eslint .",
-    "scss": "node-sass --watch scss/app.scss -o static/css --output-style compressed"
-
-
+    "styling": "sass scss/app.scss static/css/app.css --watch"
   },
   "repository": {
     "type": "git",
@@ -26,12 +24,11 @@
     "hbs": "^4.2.0",
     "match-sorter": "^6.3.1",
     "multer": "^1.4.4",
-    "node-sass": "^7.0.1",
     "nodemon": "^2.0.15",
-    "npm-reinstall": "^3.1.0",
-    "sass": "^1.49.9"
+    "npm-reinstall": "^3.1.0"
   },
   "devDependencies": {
-    "eslint": "^8.10.0"
+    "eslint": "^8.10.0",
+    "sass": "^1.49.9"
   }
 }

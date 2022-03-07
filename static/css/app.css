@@ -1,1 +1,116 @@
-.filtergrid section{border-radius:30px;margin:10px}.filtergrid{display:grid;grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));text-align:center}p{font-family:Georgia, 'Times New Roman', Times, serif;color:white;font-size:1.5em;font-weight:bold;padding-top:30%}.urban{background-image:url(/static/images/urban.jpg);background-size:cover;height:200px}.landscape{background-image:url(/static/images/landscape.jpg);background-size:cover;height:250px}.portrait{background-image:url(/static/images/portrait.jpg);background-size:cover;height:280px}.architecture{background-image:url(/static/images/architecture.jpg);background-size:cover;height:220px}.astro{background-image:url(/static/images/astro.jpg);background-size:cover;height:245px}.bw{background-image:url(/static/images/bw.jpg);background-size:cover;height:285px}#profilepage{background-color:#0a0a0a}#profile{border-radius:30px;display:grid;grid-template-columns:1fr}.profiletext{text-align:center;color:white;font-family:Georgia, 'Times New Roman', Times, serif;font-size:2em;height:40px;margin:0px}.profileinfo{text-align:center;color:white;font-family:Georgia, 'Times New Roman', Times, serif;font-size:1em;margin:0px}#info{margin-bottom:50px}#pfpic{width:175px;grid-row-start:1;margin:auto;margin-bottom:20px;margin-top:20px;border-radius:150px}#mystyle{text-align:center;color:white}#plus{width:40px;text-align:center;padding-top:10%}h1{text-align:center;color:white}#filters{background-color:#0a0a0a}
+.filtergrid section {
+  border-radius: 30px;
+  margin: 10px;
+}
+
+.filtergrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  text-align: center;
+}
+
+p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-top: 30%;
+}
+
+.urban {
+  background-image: url(/static/images/urban.jpg);
+  background-size: cover;
+  height: 200px;
+}
+
+.landscape {
+  background-image: url(/static/images/landscape.jpg);
+  background-size: cover;
+  height: 250px;
+}
+
+.portrait {
+  background-image: url(/static/images/portrait.jpg);
+  background-size: cover;
+  height: 280px;
+}
+
+.architecture {
+  background-image: url(/static/images/architecture.jpg);
+  background-size: cover;
+  height: 230px;
+}
+
+.astro {
+  background-image: url(/static/images/astro.jpg);
+  background-size: cover;
+  height: 245px;
+}
+
+.bw {
+  background-image: url(/static/images/bw.jpg);
+  background-size: cover;
+  height: 285px;
+}
+
+#profilepage {
+  background-color: black;
+}
+
+#profile {
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.profiletext {
+  text-align: center;
+  color: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 2em;
+  height: 40px;
+  margin: 0px;
+}
+
+.profileinfo {
+  text-align: center;
+  color: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1em;
+  margin: 0px;
+}
+
+#info {
+  margin-bottom: 50px;
+}
+
+#pfpic {
+  width: 175px;
+  grid-row-start: 1;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 150px;
+}
+
+#mystyle {
+  text-align: center;
+  color: white;
+}
+
+#plus {
+  width: 40px;
+  text-align: center;
+  padding-top: 10%;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+#filters {
+  background-color: #0a0a0a;
+}
+
+/*# sourceMappingURL=app.css.map */
