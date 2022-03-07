@@ -1,9 +1,3 @@
 # Click
 
-Click is een matching app voor fotografen.
-
-
-# Installing
-
-
-License
+Click is een matsching app voor fotografen.

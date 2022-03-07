@@ -3,6 +3,11 @@ const app = express()
 const PORT = process.env.PORT || 3000
 const Handlebars = require("handlebars");
 const controller = require('./controller/indexcontroller')
+const sass = require('node-sass');
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+require('dotenv').config()
+const url = 'mongodb+srv://TimoW75:$[process.env.DB_PASSWORD]@cluster0.uqhbl.mongodb.net/myFirstDatabase?retryWrites=true';
 
 
 /*********************************************/
@@ -27,8 +32,14 @@ app.get('*', (req, res) => {
     res.send('Not found..')
 })
 
-app.listen(PORT)   
 
+app.listen(PORT)  
+
+
+// MongoClient.connect(url, function(err, client) {
+//   assert.equal(null, err);
+//   client.close();
+// });
 
 /*********************************************/
 /*Alle dingen enzo*/
