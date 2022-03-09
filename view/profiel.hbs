@@ -11,46 +11,36 @@
 <body id="profilepage">
 
     <section id="profile">
-        <h1 class="profiletext"> {{user.username}}</h1>
+        <h1 class="profiletext"> Nico di Angelo {{username}}</h1>
         <img src="/static/images/nico.png" id="pfpic" alt="profile picture">
     </section>  
 
     <section id="info">
         <h2 class="profileinfo"> {{user.email}}</h2>
-        <h2 class="profileinfo"> {{user.follow}}</h2>
     </section>  
     
     <section class="filtergrid">
         <h2 id="mystyle">My Styles</h2>
+      
+  
+
+
+        {{#each styleList}}
+            <a href="{{style}}">
+                <section class="{{style}}">
+                    <p>{{name}} </p>
+                </section>    
+            </a>
+        {{/each}}
+
+    </section>
+
+    <section class="button">
         <a href="style"> <img src="/static/images/plus.jpg" id="plus" alt="profile picture"></a>
+        <P id="select">Select</P>
+    </section>
 
-        <section class="urban">
-            <p>Urban Photography</p>
-        </section>    
 
-        <section class="landscape">
-            <p>Landscape Photography</p>
-        </section> 
-
-        <section class="portrait">
-            <p>Portrait Photography</p>
-        </section>    
-
-        <section class="architecture">
-            <p>Architecture Photography</p>
-        </section>      
-
-        <section class="astro">
-            <p>Astro Photography</p>
-        </section>    
-
-        <section class="bw">
-            <p>Black and White Photography</p>
-        </section>  
-
-    </section> 
-
-    <script src="../static/js/index.js"></script>
 </body>
 
 </html>

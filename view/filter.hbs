@@ -12,7 +12,8 @@
 
     <h1>Select your styles</h1>
 
-<main class="filtergrid">
+<section class="filtergrid">
+
       <section class="urban">
             <p>Urban Photography</p>
         </section>    
@@ -37,8 +38,27 @@
             <p>Black and White Photography</p>
         </section>
 
+        <section class="aerial">
+            <p>Aerial Photography</p>
+        </section>
 
-</main>
+        <section class="pet">
+            <p>Pet Photography</p>
+        </section>
+
+    {{!-- {{#each imgList}}
+       <img  id="pfpic" src="{{link}}">
+    {{/each}} --}}
+
+</section>
+    <section class="button">
+        <a href="/"> <img src="/static/images/cross.png" id="plus" alt="profile picture"></a>
+        <P id="back">Back</P>
+    </section>
+
+    <script src="../static/js/index.js"></script>
+
+
 </body>
 
 </html>

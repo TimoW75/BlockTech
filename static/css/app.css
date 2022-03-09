@@ -1,45 +1,113 @@
+:root {
+  --bg-color:#0a0a0a;
+  --txt-color:white; }
+
 .filtergrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: 1fr 1fr;
   text-align: center; }
   .filtergrid section {
     height: 250px;
     border-radius: 30px;
     margin: 10px; }
+  .filtergrid p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--txt-color);
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-top: 50%; }
 
-p {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  color: white;
-  font-size: 1.5em;
-  font-weight: bold;
-  padding-top: 50%; }
+a {
+  text-decoration: none; }
 
 .urban {
   background-image: url(/static/images/urban.jpg);
   background-size: cover; }
 
+.urbanclicked {
+  display: none; }
+
 .landscape {
   background-image: url(/static/images/landscape.jpg);
   background-size: cover; }
+
+.landscapeclicked {
+  display: none; }
 
 .portrait {
   background-image: url(/static/images/portrait.jpg);
   background-size: cover; }
 
+.portraitclicked {
+  display: none; }
+
 .architecture {
   background-image: url(/static/images/architecture.jpg);
   background-size: cover; }
+
+.architectureclicked {
+  display: none; }
 
 .astro {
   background-image: url(/static/images/astro.jpg);
   background-size: cover; }
 
+.astroclicked {
+  display: none; }
+
 .bw {
   background-image: url(/static/images/bw.jpg);
   background-size: cover; }
 
+.bwclicked {
+  display: none; }
+
+.aerial {
+  background-image: url(/static/images/aerial.jpg);
+  background-size: cover; }
+
+.aerialclicked {
+  display: none; }
+
+.pet {
+  background-image: url(/static/images/pet.jpeg);
+  background-size: cover; }
+
+.petclicked {
+  display: none; }
+
+.photopage {
+  background-color: var(--bg-color); }
+
+.button {
+  height: 250px;
+  width: 250px;
+  border-radius: 150px;
+  background-color: #1c1c1c;
+  border: 2px solid #d9d9d9;
+  position: fixed;
+  top: 88%;
+  left: 20%; }
+  .button p {
+    margin-top: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--txt-color);
+    margin-top: 10px;
+    top: 0; }
+  .button #select {
+    margin-left: 84px; }
+  .button #back {
+    margin-left: 90px; }
+
+#plus {
+  width: 40px;
+  margin-left: 100px;
+  margin-top: 15px; }
+
 #profilepage {
-  background-color: black; }
+  background-color: var(--bg-color); }
 
 #profile {
   border-radius: 30px;
@@ -56,7 +124,7 @@ p {
 
 .profileinfo {
   text-align: center;
-  color: white;
+  color: var(--txt-color);
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 1em;
   margin: 0px; }
@@ -74,17 +142,14 @@ p {
 
 #mystyle {
   text-align: center;
-  color: white; }
-
-#plus {
-  width: 40px;
-  text-align: center;
-  margin: auto;
-  padding-top: 10%; }
+  color: var(--txt-color);
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-size: 1.8em; }
 
 h1 {
   text-align: center;
-  color: white; }
+  color: var(--txt-color); }
 
 #filters {
-  background-color: #0a0a0a; }
+  background-color: var(--bg-color); }

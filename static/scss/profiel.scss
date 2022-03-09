@@ -1,5 +1,5 @@
 #profilepage{
-    background-color: black;
+    background-color:  var(--bg-color);
 }
 
 #profile{
@@ -19,10 +19,11 @@
 
 .profileinfo{
     text-align: center;
-    color: white;
+    color: var(--txt-color);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1em;
     margin: 0px;
+   
 }
 
 #info{
@@ -41,12 +42,9 @@
 
 #mystyle{
     text-align: center;
-    color: white;
+    color: var(--txt-color);
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 1.8em;
 }
 
-#plus{
-    width: 40px;
-    text-align: center;
-    margin: auto;
-    padding-top: 10%;
-}

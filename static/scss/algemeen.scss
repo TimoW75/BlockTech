@@ -1,23 +1,33 @@
 
+:root{
+    --bg-color:#0a0a0a;
+    --txt-color:white;
+}
+
 
 .filtergrid{
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+    grid-template-columns: 1fr 1fr;
     text-align: center;
     section{
         height: 250px;
         border-radius: 30px;
         margin: 10px;
     }
+    p{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: var(--txt-color);
+        font-size: 1.5em;
+        font-weight: bold;
+        padding-top: 50%;
+       
 }
 
-p{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: white;
-    font-size: 1.5em;
-    font-weight: bold;
-    padding-top: 50%;
-    
+ 
+}
+
+a{
+    text-decoration: none;
 }
 
 .urban{
@@ -25,9 +35,17 @@ p{
     background-size: cover;
 }
 
+.urbanclicked{
+    display: none;
+}
+
 .landscape{
     background-image: url(/static/images/landscape.jpg);
     background-size: cover;
+}
+
+.landscapeclicked{
+    display: none;
 }
 
 .portrait{
@@ -35,9 +53,17 @@ p{
     background-size: cover;
 }
 
+.portraitclicked{
+    display: none;
+}
+
 .architecture{
     background-image: url(/static/images/architecture.jpg);
     background-size: cover;
+}
+
+.architectureclicked{
+    display: none;
 }
 
 
@@ -46,7 +72,76 @@ p{
     background-size: cover;
 }
 
+.astroclicked{
+    display: none;
+}
+
 .bw{
     background-image: url(/static/images/bw.jpg);
     background-size: cover;
 } 
+
+.bwclicked{
+    display: none;
+} 
+
+.aerial{
+    background-image: url(/static/images/aerial.jpg);
+    background-size: cover;
+} 
+
+.aerialclicked{
+    display: none;
+}
+
+
+.pet{
+    background-image: url(/static/images/pet.jpeg);
+    background-size: cover;
+}
+
+.petclicked{
+    display: none;
+}
+
+
+
+
+.photopage{
+    background-color: var(--bg-color);
+}
+
+
+.button{
+    height: 250px;
+    width: 250px;
+    border-radius: 150px ;
+    background-color: #1c1c1c;
+    border: 2px solid #d9d9d9;
+    position: fixed;
+    top:88%;
+    left:20%;
+    p{
+        margin-top: 10px;
+        font-size: 1.5em;   
+        font-weight: bold;      
+        font-family: Georgia, 'Times New Roman', Times, serif;  
+        color: var(--txt-color);
+        margin-top: 10px;
+        top: 0;
+    }
+    #select{
+        margin-left: 84px;
+    }
+    #back{
+        margin-left: 90px;
+    }
+
+    
+}
+
+#plus{
+    width: 40px;
+    margin-left: 100px;
+    margin-top: 15px;
+}
