@@ -7,24 +7,19 @@ const bodyParser = require('body-parser')
 const connectDB = require('./controller/db')
 const mongo = require('mongodb')
 const mongoose = require('mongoose');
+const multer = require('multer')
 const async = require('hbs/lib/async');
-const styleImport = require('./controller/style');
 const req = require('express/lib/request');
 const { on } = require('nodemon');
-// const users = require('./controller/users')
-
+// const imageModel = require('./controller/upload');
 
 require('dotenv').config()
 
 /*********************************************/
-/*Server enzo*/
+/*Server Routes, Schemas en Models*/
 /*********************************************/
 connectDB();
 
-// app.post('/', async(req, res) =>{
-//     const gebruiker = new users(req.body)
-//     await gebruiker.save()
-// })
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
@@ -52,44 +47,19 @@ const aerial = new styleModel({ style: 'aerial' , name: 'Aerial Photography'});
 const pet = new styleModel({ style: 'pet' , name: 'Pet Photography'});
 
 
+
+
 // styleModel.deleteMany({}, function ( err ) {
 //   });
 
 
-const imgSchema = new mongoose.Schema({ 
-    link: String,  
-}); 
-
-const imgModel = mongoose.model('images', imgSchema)
-
-
-app.get('/', (req, res) => {
-    styleModel.find({}, function(err, styles) {
-        res.render('profiel.hbs', {
+app.get('/',  (req, res) => {
+    styleModel.find({}, async function(err, styles) {
+        await res.render('profiel.hbs', {
             styleList: styles
         })
     })
 })
-
-
-// app.get('/', (req, res) => { 
-//     res.render('profiel.hbs',{styleList: styles})
-//     res.status(200)
-//     console.log(styles)
-// })
-
-
-app.get('/style', (req, res) => {
-    imgModel.find({}, function(err, image) {
-        res.render('filter.hbs', {
-            imgList: image
-        })
-        // styleModel.deleteMany({}, function ( err ) {
-        //   });
-    })
-})
-
-
 
 
 app.get('/style', (req, res) => { 
@@ -97,14 +67,15 @@ app.get('/style', (req, res) => {
     res.status(200)
 })
 
-app.post('/style', (req, res) =>{
-    styleModel.exists({style:'urban'}, async function (err, doc) {
-        const urbanExist = doc;
-        if(urbanExist == null & req.body.urban =='on'){
+app.post('/style', async (req, res) =>{
+
+    styleModel.exists({style:'urban'}, async function (err, doc) { //zoeken voor style urban in de database
+        const urbanExist = doc; // variable aanmaken 
+        if(urbanExist == null & req.body.urban =='on'){ // als de style nog niet in de database staat en als de checkbox aangeklikt is op submit
             console.log('urban added')
-            await urban.save();
+            await urban.save(); // save de urban style naar de database
         }else{
-            console.log('urban in DB')
+            console.log('urban already in DB or not selected')
         }    
     });
 
@@ -114,7 +85,7 @@ app.post('/style', (req, res) =>{
             console.log('landscape added')
             await landscape.save();
         }else{
-            console.log('landscape in DB')
+            console.log('landscape already in DB or not selected')
         }    
     });
 
@@ -124,7 +95,7 @@ app.post('/style', (req, res) =>{
             console.log('portrait added')
             await portrait.save();
         }else{
-            console.log('portrait in DB')
+            console.log('portrait already in DB or not selected')
         }    
     });
 
@@ -134,7 +105,7 @@ app.post('/style', (req, res) =>{
             console.log('architecture added')
             await architecture.save();
         }else{
-            console.log('architecture in DB')
+            console.log('architecture already in DB or not selected')
         }    
     });
 
@@ -144,7 +115,7 @@ app.post('/style', (req, res) =>{
             console.log('astro added')
             await astro.save();
         }else{
-            console.log('astro in DB')
+            console.log('astro already in DB or not selected')
         }    
     });
 
@@ -154,7 +125,7 @@ app.post('/style', (req, res) =>{
             console.log('bw added')
             await bw.save();
         }else{
-            console.log('bw in DB')
+            console.log('bw already in DB or not selected')
         }    
     });
 
@@ -164,7 +135,7 @@ app.post('/style', (req, res) =>{
             console.log('aerial added')
             await aerial.save()
         }else{
-            console.log('aerial in DB')
+            console.log('aerial already in DB or not selected')
         }    
     });
 
@@ -174,18 +145,14 @@ app.post('/style', (req, res) =>{
             console.log('pet added')
             await pet.save();
         }else{
-            console.log('pet in DB')
+            console.log('pet already in DB or not selected')
         }    
     });
-
-    res.redirect('/') 
+    await new Promise(resolve => setTimeout(resolve, 550));
+    await res.redirect('/') 
 
 })
 
-// app.post('/land', (req, res) =>{
-//     landscape.save();
-//     res.redirect('/style')
-// })
 
 app.get('/urban', (req, res) => { 
     res.render('urban.hbs')
@@ -223,6 +190,13 @@ app.get('/aerial', (req, res) => {
     res.status(200)
 })
 
+app.post('/aerial', (req, res) => { 
+    const remove = req.body.remove
+    console.log('remove')
+
+    res.render('aerial');
+})
+
 app.get('/pet', (req, res) => { 
     res.render('pet.hbs')
     res.status(200)
@@ -234,8 +208,3 @@ app.get('*', (req, res) => {
 
 app.listen(PORT)  
 
-
-
-/*********************************************/
-/*Alle dingen enzo*/
-/*********************************************/

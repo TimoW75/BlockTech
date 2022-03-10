@@ -17,13 +17,14 @@
     // button{
     input{
         color: transparent;
-        height: 200px;
-        width: 160px;
-        opacity: 0;
+        height: 250px;
+        width: 175px;
+        appearance: none;
+
     }
     label{
     position: relative;
-    top: -100px;
+    top: -150px;
     color: var(--txt-color);
     font-size: 1.5em;
     font-weight: bold;
@@ -33,6 +34,11 @@
 
 input:checked + label {
     color: red;
+}
+
+input:checked {
+    opacity: 0.6;
+    background-color: var(--bg-color);
 }
 
 p{
@@ -143,7 +149,7 @@ a{
     border: 2px solid #d9d9d9;
     position: fixed;
     top:88%;
-    left:16%;
+    left:20%;
     p{
         margin-top: 10px;
         font-size: 1.5em;   
@@ -153,10 +159,7 @@ a{
         margin-top: 10px;
         top: 0;
     }
-    #select{
-        margin-left: 84px;
-        padding-top: 0px;
-    }
+    
     #submit{    
         margin-top: 25px;
         height: 50px;
