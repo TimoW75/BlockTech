@@ -31,6 +31,7 @@ app.set('views', 'view');
 
 
 
+
 const styleSchema = new mongoose.Schema({ 
     style: String,  
     name: String,
@@ -101,7 +102,7 @@ app.get('/style', (req, res) => {
 
 
 
-    
+
 app.get('/style', (req, res) => { 
     res.render('filter.hbs')
     res.status(200)
