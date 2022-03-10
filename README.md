@@ -34,4 +34,4 @@ http://localhost:3000/
 
 
 # License
-MIT License
+[MIT License](https://github.com/TimoW75/BlockTech/blob/main/LICENSE.md)
