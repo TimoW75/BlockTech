@@ -97,87 +97,88 @@ app.get('/style', (req, res) => {
     res.status(200)
 })
 
-app.post('/style', async (req, res) =>{
-    styleModel.exists({style:'urban'}, await function (err, doc) {
+app.post('/style', (req, res) =>{
+    styleModel.exists({style:'urban'}, async function (err, doc) {
         const urbanExist = doc;
         if(urbanExist == null & req.body.urban =='on'){
             console.log('urban added')
-            urban.save();
+            await urban.save();
         }else{
             console.log('urban in DB')
         }    
     });
 
-    styleModel.exists({style:'landscape'}, await function (err, doc) {
+    styleModel.exists({style:'landscape'}, async function (err, doc) {
         const landscapeExist = doc;
         if(landscapeExist == null & req.body.landscape == 'on'){
             console.log('landscape added')
-            landscape.save();
+            await landscape.save();
         }else{
             console.log('landscape in DB')
         }    
     });
 
-    styleModel.exists({style:'portrait'}, await function (err, doc) {
+    styleModel.exists({style:'portrait'}, async function (err, doc) {
         const portraitExist = doc;
         if(portraitExist == null & req.body.portrait == 'on'){
             console.log('portrait added')
-            portrait.save();
+            await portrait.save();
         }else{
             console.log('portrait in DB')
         }    
     });
 
-    styleModel.exists({style:'architecture'}, await function (err, doc) {
+    styleModel.exists({style:'architecture'}, async function (err, doc) {
         const architectureExist = doc;
         if(architectureExist == null & req.body.architecture =='on'){
             console.log('architecture added')
-            architecture.save();
+            await architecture.save();
         }else{
             console.log('architecture in DB')
         }    
     });
 
-    styleModel.exists({style:'astro'}, await function (err, doc) {
+    styleModel.exists({style:'astro'}, async function (err, doc) {
         const astroExist = doc;
         if(astroExist == null & req.body.astro =='on'){
             console.log('astro added')
-            astro.save();
+            await astro.save();
         }else{
             console.log('astro in DB')
         }    
     });
 
-    styleModel.exists({style:'bw'}, await function (err, doc) {
+    styleModel.exists({style:'bw'}, async function (err, doc) {
         const bwExist = doc;
         if(bwExist == null & req.body.bw =='on'){
             console.log('bw added')
-            bw.save();
+            await bw.save();
         }else{
             console.log('bw in DB')
         }    
     });
 
-    styleModel.exists({style:'aerial'}, await function (err, doc) {
+    styleModel.exists({style:'aerial'}, async function (err, doc) {
         const aerialExist = doc;
         if(aerialExist == null & req.body.aerial =='on'){
             console.log('aerial added')
-            aerial.save();
+            await aerial.save()
         }else{
             console.log('aerial in DB')
         }    
     });
 
-    styleModel.exists({style:'pet'}, await function (err, doc) {
+    styleModel.exists({style:'pet'}, async function (err, doc) {
         const petExist = doc;
         if(petExist == null & req.body.pet =='on'){
             console.log('pet added')
-            pet.save();
+            await pet.save();
         }else{
             console.log('pet in DB')
         }    
     });
-    await res.redirect('/') 
+
+    res.redirect('/') 
 
 })
 
