@@ -101,10 +101,7 @@ app.get('/style', (req, res) => {
 
 
 
-
-
-
-
+    
 app.get('/style', (req, res) => { 
     res.render('filter.hbs')
     res.status(200)
