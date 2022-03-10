@@ -14,17 +14,40 @@
         border-radius: 30px;
         margin: 10px;
     }
-    p{
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        color: var(--txt-color);
-        font-size: 1.5em;
-        font-weight: bold;
-        padding-top: 50%;
-       
+    // button{
+    input{
+        color: transparent;
+        height: 200px;
+        width: 160px;
+        opacity: 0;
+    }
+    label{
+    position: relative;
+    top: -100px;
+    color: var(--txt-color);
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 }
 
- 
+input:checked + label {
+    color: red;
 }
+
+p{
+    padding-top: 100px;
+    color: var(--txt-color);
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+#submit{
+    height: 100px;
+}
+
 
 a{
     text-decoration: none;
@@ -114,13 +137,13 @@ a{
 
 .button{
     height: 250px;
-    width: 250px;
-    border-radius: 150px ;
+    width: 250px; 
+    border-radius: 150px !important;
     background-color: #1c1c1c;
     border: 2px solid #d9d9d9;
     position: fixed;
     top:88%;
-    left:20%;
+    left:16%;
     p{
         margin-top: 10px;
         font-size: 1.5em;   
@@ -132,9 +155,18 @@ a{
     }
     #select{
         margin-left: 84px;
+        padding-top: 0px;
     }
-    #back{
-        margin-left: 90px;
+    #submit{    
+        margin-top: 25px;
+        height: 50px;
+        text-align: center;
+        border: none;
+        background-color: transparent;
+        font-size: 1.5em;   
+        font-weight: bold;      
+        font-family: Georgia, 'Times New Roman', Times, serif;  
+        color: var(--txt-color);
     } 
 }
 

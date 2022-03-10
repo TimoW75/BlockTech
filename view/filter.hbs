@@ -12,51 +12,104 @@
 
     <h1>Select your styles</h1>
 
-<section class="filtergrid">
+{{!-- <section class="filtergrid"> --}}
 
-      <section class="urban">
-            <p>Urban Photography</p>
+    {{!-- <form  method="post" action="style">
+    <input type="hidden" name="name" value="urban">
+        <section class="urban">
+            <button>Urban Photography</button>
         </section>    
-
+    </form>
+    
+    <form method="post" action="land">
+        <input type="hidden" name="name" value="landscape">
         <section class="landscape">
-            <p>Landscape Photography</p>
+            <button>Landscape Photography</button>
         </section> 
+    </form>
 
+    <form  method="post" action="portraitClick">
         <section class="portrait">
             <p>Portrait Photography</p>
         </section>    
+    </form>
 
+    <form  method="post" action="arClick">
         <section class="architecture">
             <p>Architecture Photography</p>
         </section>      
+    </form>
 
+    <form  method="post" action="astroClick">
         <section class="astro">
             <p>Astro Photography</p>
         </section>    
+    </form> 
 
+    <form  method="post" action="bwClick">
         <section class="bw">
             <p>Black and White Photography</p>
         </section>
+    </form>
 
+    <form  method="post" action="/filter">
         <section class="aerial">
             <p>Aerial Photography</p>
         </section>
+    </form>
 
+    <form method="post" action="/">
         <section class="pet">
             <p>Pet Photography</p>
         </section>
+    </form> --}}
 
-    {{!-- {{#each imgList}}
-       <img  id="pfpic" src="{{link}}">
-    {{/each}} --}}
+    <form method="post" action="style" class="filtergrid">
+        <section class="urban">
+            <input type="checkbox" name="urban" id="urban">
+            <label for="urban">Urban Photography</label>
+        </section>    
+    
+        <section class="landscape">
+           <input type="checkbox" name="landscape" id="landscape">
+           <label for="landscape">Landscape Photography</label>
+        </section> 
 
-</section>
+        <section class="portrait">
+            <input type="checkbox" name="portrait" id="portrait">
+            <label for="portrait">Portrait Photography</label>
+        </section>    
 
-    <section class="button">
-        <a href="/"> <img src="/static/images/cross.png" id="plus" alt="profile picture"></a>
-        <P id="back">Back</P>
-    </section>
+        <section class="architecture">
+            <input type="checkbox" name="architecture" id="architecture">
+            <label for="architecture">Architecture Photography</label>
+        </section>      
 
+        <section class="astro">
+            <input type="checkbox" name="astro" id="astro">
+            <label for="astro">Astro Photography</label>
+        </section>    
+
+        <section class="bw">
+            <input type="checkbox" name="bw" id="bw">
+            <label for="bw">Black and White Photography</label>
+        </section>
+
+        <section class="aerial">
+            <input type="checkbox" name="aerial" id="aerial">
+            <label for="aerial">Aerial Photography</label>
+        </section>
+   
+        <section class="pet">
+            <input type="checkbox" name="pet" id="pet">
+            <label for="pet">Pet Photography</label>
+        </section>
+
+        <section class="button">    
+            <button type="submit" value="Submit" id="submit">Submit</button>
+        </section>
+    </form>
+   
     <script src="../static/js/index.js"></script>
 
 

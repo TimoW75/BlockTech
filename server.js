@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const async = require('hbs/lib/async');
 const styleImport = require('./controller/style');
 const req = require('express/lib/request');
+const { on } = require('nodemon');
 // const users = require('./controller/users')
 
 
@@ -24,11 +25,13 @@ connectDB();
 //     const gebruiker = new users(req.body)
 //     await gebruiker.save()
 // })
-
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
 app.use('/static',express.static('static'))
 app.set('view engine', 'hbs');
 app.set('views', 'view');
-
 
 
 
@@ -49,24 +52,13 @@ const aerial = new styleModel({ style: 'aerial' , name: 'Aerial Photography'});
 const pet = new styleModel({ style: 'pet' , name: 'Pet Photography'});
 
 
-const saveStyles = () => {
-    urban.save();
-    astro.save();
-    landscape.save();
-    portrait.save();
-    architecture.save();
-    bw.save();
-    aerial.save();
-    pet.save();  
-}
-
 // styleModel.deleteMany({}, function ( err ) {
 //   });
 
 
 const imgSchema = new mongoose.Schema({ 
     link: String,  
-});
+}); 
 
 const imgModel = mongoose.model('images', imgSchema)
 
@@ -100,18 +92,105 @@ app.get('/style', (req, res) => {
 
 
 
-
-
-
 app.get('/style', (req, res) => { 
     res.render('filter.hbs')
     res.status(200)
 })
 
+app.post('/style', async (req, res) =>{
+    styleModel.exists({style:'urban'}, await function (err, doc) {
+        const urbanExist = doc;
+        if(urbanExist == null & req.body.urban =='on'){
+            console.log('urban added')
+            urban.save();
+        }else{
+            console.log('urban in DB')
+        }    
+    });
+
+    styleModel.exists({style:'landscape'}, await function (err, doc) {
+        const landscapeExist = doc;
+        if(landscapeExist == null & req.body.landscape == 'on'){
+            console.log('landscape added')
+            landscape.save();
+        }else{
+            console.log('landscape in DB')
+        }    
+    });
+
+    styleModel.exists({style:'portrait'}, await function (err, doc) {
+        const portraitExist = doc;
+        if(portraitExist == null & req.body.portrait == 'on'){
+            console.log('portrait added')
+            portrait.save();
+        }else{
+            console.log('portrait in DB')
+        }    
+    });
+
+    styleModel.exists({style:'architecture'}, await function (err, doc) {
+        const architectureExist = doc;
+        if(architectureExist == null & req.body.architecture =='on'){
+            console.log('architecture added')
+            architecture.save();
+        }else{
+            console.log('architecture in DB')
+        }    
+    });
+
+    styleModel.exists({style:'astro'}, await function (err, doc) {
+        const astroExist = doc;
+        if(astroExist == null & req.body.astro =='on'){
+            console.log('astro added')
+            astro.save();
+        }else{
+            console.log('astro in DB')
+        }    
+    });
+
+    styleModel.exists({style:'bw'}, await function (err, doc) {
+        const bwExist = doc;
+        if(bwExist == null & req.body.bw =='on'){
+            console.log('bw added')
+            bw.save();
+        }else{
+            console.log('bw in DB')
+        }    
+    });
+
+    styleModel.exists({style:'aerial'}, await function (err, doc) {
+        const aerialExist = doc;
+        if(aerialExist == null & req.body.aerial =='on'){
+            console.log('aerial added')
+            aerial.save();
+        }else{
+            console.log('aerial in DB')
+        }    
+    });
+
+    styleModel.exists({style:'pet'}, await function (err, doc) {
+        const petExist = doc;
+        if(petExist == null & req.body.pet =='on'){
+            console.log('pet added')
+            pet.save();
+        }else{
+            console.log('pet in DB')
+        }    
+    });
+    await res.redirect('/') 
+
+})
+
+// app.post('/land', (req, res) =>{
+//     landscape.save();
+//     res.redirect('/style')
+// })
+
 app.get('/urban', (req, res) => { 
     res.render('urban.hbs')
     res.status(200)
 })
+
 
 app.get('/landscape', (req, res) => { 
     res.render('landscape.hbs')
