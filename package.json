@@ -6,8 +6,9 @@
   "scripts": {
     "server": "node server.js",
     "lint": "eslint .",
-    "styling": "node-sass --watch static/scss/app.scss static/css/app.css"
-  
+    "styling": "node-sass --watch static/scss/app.scss static/css/app.css",
+    "start": "node server.js"
+
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,6 @@
     "node-sass": "^7.0.1"
   },
   "engines": {
-    "node": "=v17.5.0"
+    "node": "v16.14.0"
   }
 }
