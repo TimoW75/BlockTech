@@ -5,24 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/app.css">
-    <title>Astro Photography</title>
+    <title>Astro </title>
 </head>
 <body class="photopage">
 
-    <form method="post" action="astro">
-        <section class="button">  
-            <input type="hidden">  
-            <button type="submit" value="submit" name="addPhoto"class="addPhoto">Add Photo</button>
+    <h1>Astro Photography</h1>
+
+    <section class="imgGrid">
+        {{#each imgAstro}}
+            {{#each this}}
+                {{#if imageBase64}}
+                <section class="uploadImgGrid">
+                    <img src='data:{{contentType}};base64,{{imageBase64}}' alt="UploadedImage" class="uploadedImage">
+                </section>
+                {{/if}}
+            {{/each}}
+        {{/each}}
+    </section>
+
+    <form method="post" action="/astro" enctype="multipart/form-data">
+        <section class="buttonForm">
+            <label class="browse" for="formFile">New Img</label>
+            <input type="file"  name="imagesAstro" id="formFile" multiple>
+            <input type="submit" class="submitBtn" value="Upload">
         </section>
-    
+    </form>
 
-
+    <form action="/remove" method="post">
         <section class="delete">
             <input type="hidden" id="remove">  
-            <button type="submit" name="remove" value="remove" class="delete">Delete Style</button>
+            <button type="submit" name="astro" value="astro" >Delete Style</button>
         </section>
-
     </form>
+
 
 </body>
 </html>

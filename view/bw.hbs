@@ -1,15 +1,42 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/app.css">
-    <title>Document</title>
+    <title>Black and White</title>
 </head>
 <body class="photopage">
     
+    <section class="imgGrid">
+        {{#each imgBW}}
+            {{#each this}}
+                {{#if imageBase64}}
+                <section class="uploadImgGrid">
+                     <img src='data:{{contentType}};base64,{{imageBase64}}' alt="UploadedImage" class="uploadedImage">
+                </section>
+                {{/if}}
+            {{/each}}
+        {{/each}}
+    </section>
 
+    <form action="/bw" enctype="multipart/form-data"  method="post">
+        <section class="uploadForm">
+            <section class="buttonForm">
+                <input type="file" class="form-control" name="imagesBW" id="formFile" multiple>
+                <input type="submit" class="btn" value="upload images">
+            </section>
+        </section>
+    </form>
+
+    <form action="/remove" method="post">
+        <section class="delete">
+            <input type="hidden" id="remove">  
+            <button type="submit" name="bw" value="bw">Delete Style</button>
+        </section>
+    </form>
+
+   
 
 
 </body>

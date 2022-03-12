@@ -5,37 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/app.css">
-    <title>pet</title>
+    <title>Pet</title>
 </head>
 <body class="photopage">
-    
-<section class="section">
-        <div class="container">
-            
 
-            <div>
-                <form action="/pet" enctype="multipart/form-data"  method="post">
-                    <section class="button">
-                        <input type="file" class="form-control" name="images" id="formFile" multiple>
-                        <input type="submit" class="btn" value="upload images">
-                    </section>
-                </form>
-            </div>
-        </div>
-
-<section class="imgGrid">
-    {{#each imgPet}}
-        {{#each this}}
-            {{#if imageBase64}}
-            
+     <section class="imgGrid">
+        {{#each imgPet}}
+            {{#each this}}
+                {{#if imageBase64}}
                 <section class="uploadImgGrid">
+                    <h1>{{date}}</h1>
                      <img src='data:{{contentType}};base64,{{imageBase64}}' alt="UploadedImage" class="uploadedImage">
                 </section>
-
-            {{/if}}
+                {{/if}}
+            {{/each}}
         {{/each}}
-    {{/each}}
-</section>
+    </section>
+
+    <form action="/pet" enctype="multipart/form-data"  method="post">
+        <section class="uploadForm">
+            <section class="buttonForm">
+                <input type="file" class="form-control" name="imagesPet" id="formFile" multiple>
+                <input type="submit" class="btn" value="upload images">
+            </section>
+        </section>
+    </form>
+
+    <form action="/remove" method="post">
+        <section class="delete">
+            <input type="hidden" id="remove">  
+            <button type="submit" name="pet" value="pet">Delete Style</button>
+        </section>
+    </form>
+
+   
 
 
 </body>

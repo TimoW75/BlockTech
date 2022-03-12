@@ -159,84 +159,89 @@ app.post('/style', async (req, res) =>{
 
 })
 
-app.get('/urban', (req, res) => { 
-    res.render('urban.hbs')
-    res.status(200)
-})
+app.get('/urban', controller.homeUrban)
 
-app.get('/landscape', (req, res) => { 
-    res.render('landscape.hbs')
-    res.status(200)
-})
+app.post('/urban', store.array('imagesUrban', 4), controller.uploadsUrban)
 
-app.get('/portrait', (req, res) => { 
-    res.render('portrait.hbs')
-    res.status(200)
-})
+app.get('/landscape', controller.homeLandscape)
 
-app.get('/architecture', (req, res) => { 
-    res.render('architecture.hbs')
-    res.status(200)
-})
+app.post('/landscape', store.array('imagesLandscape', 4), controller.uploadsLandscape)
 
-app.get('/astro', (req, res) => { 
-    res.render('astro.hbs')
-    res.status(200)
-})
+app.get('/portrait', controller.homePortrait)
 
-app.post('/astro', (req, res) => { 
-    const removeAstro = req.body.remove
-    if(removeAstro == 'remove'){
-        astro.remove({style: 'astro'})
-        console.log("removed")
-        res.redirect('/');
-    }
-    const addPhoto = req.body.addPhoto
-    if(addPhoto == 'submit'){
-        console.log('addphoto')
-    }
-})
+app.post('/portrait', store.array('imagesPortrait', 4), controller.uploadsPortrait) 
 
-app.get('/bw', (req, res) => { 
-    res.render('bw.hbs')
-    res.status(200)
-})
+app.get('/architecture', controller.homeArchitecture)
 
-app.get('/aerial', (req, res) => { 
-    res.render('aerial.hbs')
-    res.status(200)
-})
+app.post('/architecture', store.array('imagesArchitecture', 4), controller.uploadsArchitecture)
 
-app.post('/aerial', store.array('images', 4), (req, res) => { 
+app.get('/astro',  controller.homeAstro)
+
+app.post('/astro', store.array('imagesAstro', 4), controller.uploadsAstro)
+
+app.get('/bw', controller.homeBW)
+
+app.post('/bw', store.array('imagesBW', 4), controller.uploadsBW)
+
+app.get('/aerial', controller.homeAerial)
+
+app.post('/aerial', store.array('imagesAerial', 4), controller.uploadsAerial,
+(req, res) => { 
+    console.log(req.body)
     const removeAerial = req.body.remove
     if(removeAerial == 'remove'){
         aerial.remove({style: 'aerial'}) 
         console.log("removed")
         res.redirect('/');
     }
-    const addPhoto = req.body.addPhoto
-    if(addPhoto == 'submit'){
-        const files = req.files;
-        if(!files){
-            const error = new Error('Please choose files')
-        }
-        res.json(files)
-
-        // res.redirect('/aerial')
-
-        // console.log('addphoto')
+    const imagesAerial = req.body.imagesAerial
+    if(imagesAerial == 'upload'){
     }
 })
 
-app.get('/pet',  controller.home)
+app.get('/pet', controller.homePet)
 
-app.post('/pet', store.array('images', 4), controller.uploads);
-
-
+app.post('/pet', store.array('imagesPet', 4), controller.uploadsPet);
 
 
 app.get('*', (req, res) => {
     res.send('Not found..')
+})
+
+app.post('/remove', (req, res) =>{
+    const petBtn = req.body.pet
+    const astroBtn = req.body.astro
+    const urbanBtn = req.body.urban
+    const bwBtn = req.body.bw
+    const aerialBtn = req.body.aerial
+    const landscapeBtn = req.body.landscape
+    const portraitBtn = req.body.portrait
+    const architectureBtn = req.body.architecture
+    if(petBtn == 'pet'){
+        pet.remove({style: 'pet'})
+    }
+    if(astroBtn == 'astro'){
+        astro.remove({style: 'astro'})      
+    }
+    if(urbanBtn == 'urban'){
+        urban.remove({style: 'urban'})       
+    }
+    if(bwBtn == 'bw'){
+        bw.remove({style: 'bw'})
+    }
+    if(architectureBtn == 'architecture'){
+        architecture.remove({style: 'architecture'})
+    }
+    if(portraitBtn == 'portrait'){
+        portrait.remove({style: 'portrait'})
+    }
+    if(landscapeBtn == 'landscape'){
+        landscape.remove({style: 'landscape'})    
+    }
+    if(aerialBtn == 'aerial'){
+        aerial.remove({style: 'aerial'})        
+    }
+    res.redirect('/')
 })
 
 app.listen(PORT)  

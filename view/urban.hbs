@@ -8,12 +8,33 @@
     <title>Urban</title>
 </head>
 <body class="photopage">
-    
-    <form action="" method="">
-        <label></label>
 
+    <section class="imgGrid">
+        {{#each imgUrban}}
+            {{#each this}}
+                {{#if imageBase64}}
+                <section class="uploadImgGrid">
+                     <img src='data:{{contentType}};base64,{{imageBase64}}' alt="UploadedImage" class="uploadedImage">
+                </section>
+                {{/if}}
+            {{/each}}
+        {{/each}}
+    </section>
 
+    <form action="/urban" enctype="multipart/form-data"  method="post">
+        <section class="uploadForm">
+            <section class="buttonForm">
+                <input type="file" class="form-control" name="imagesUrban" id="formFile" multiple>
+                <input type="submit" class="btn" value="upload images">
+            </section>
+        </section>
+    </form>
 
+    <form action="/remove" method="post">
+        <section class="delete">
+            <input type="hidden" id="remove">  
+            <button type="submit" name="urban" value="urban">Delete Style</button>
+        </section>
     </form>
 
 </body>

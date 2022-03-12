@@ -50,11 +50,6 @@ p{
 }
 
 
-#submit{
-    height: 100px;
-}
-
-
 a{
     text-decoration: none;
 }
@@ -134,8 +129,6 @@ a{
 }
 
 
-
-
 .photopage{
     background-color: var(--bg-color);
 }
@@ -171,6 +164,18 @@ a{
         font-family: Georgia, 'Times New Roman', Times, serif;  
         color: var(--txt-color);
     } 
+    input{
+        height: 50px;
+        text-align: center;
+        border: none;
+        background-color: transparent;
+        font-size: 1.5em;   
+        font-weight: bold;      
+        font-family: Georgia, 'Times New Roman', Times, serif;  
+        color: var(--txt-color);
+        margin-left: 70px;
+
+    }
 }
 
 #plus{

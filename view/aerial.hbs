@@ -5,26 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/app.css">
-    <title>Aerial Photography</title>
+    <title>Aerial</title>
 </head>
+
 <body class="photopage">
-    
-    <form method="post" action="aerial">
-        <section class="button">  
-            <input type="hidden">  
-            <button type="submit" value="submit" name="addPhoto"class="addPhoto">Add Photo</button>
+
+    <h1>Aerial Photography</h1>
+
+    <section class="imgGrid">
+        {{#each imgAerial}}
+            {{#each this}}
+                {{#if imageBase64}}
+                <section class="uploadImgGrid">
+                     <img src='data:{{contentType}};base64,{{imageBase64}}' alt="UploadedImage" class="uploadedImage">
+                </section>
+                {{/if}}
+            {{/each}}
+        {{/each}}
+    </section>
+
+    <form method="POST" action="/aerial" enctype="multipart/form-data">
+        <section class="uploadForm">
+            <section class="buttonForm">
+                <input type="file" class="form-control" name="imagesAerial" id="formFile" multiple>
+                <button type="submit" class="" name="imagesAerial" value="upload">
+            </section>
         </section>
-    
 
-
+    <form action="/remove" method="post">
         <section class="delete">
             <input type="hidden" id="remove">  
-            <button type="submit" name="remove" value="remove" class="delete">Delete Style</button>
+            <button type="submit" name="aerial" value="aerial" >Delete Style</button>
         </section>
-
     </form>
 
-
-    </section>
 </body>
 </html>

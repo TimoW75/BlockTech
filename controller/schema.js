@@ -7,18 +7,22 @@ const uploadSchema = new mongoose.Schema({
     filename:{
         type: String,
         unique: true,
-        required:true
     },
     contenType:{
         type: String,
-        required:true
     },
     imageBase64:{
         type: String,
-        required: true
     }
 })
 
-// const imgastro = mongoose.model('imgAstro', uploadSchema)
 
+
+module.exports = UploadModelUrban = mongoose.model('imgUrban', uploadSchema)
+module.exports = UploadModelAerial = mongoose.model('imgAerial', uploadSchema)
+module.exports = UploadModelAstro = mongoose.model('imgAstro', uploadSchema)
 module.exports = UploadModelPet = mongoose.model('imgPet', uploadSchema)
+module.exports = UploadModelBW = mongoose.model('imgBW', uploadSchema)
+module.exports = UploadModelArchitecture = mongoose.model('imgArchitecture', uploadSchema)
+module.exports = UploadModelLandscape = mongoose.model('imgLandscape', uploadSchema)
+module.exports = UploadModelPortrait = mongoose.model('imgPortrait', uploadSchema)
