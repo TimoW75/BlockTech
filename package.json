@@ -7,7 +7,7 @@
     "server": "node server.js & npm run build",
     "lint": "eslint .",
     "styling": "node-sass --watch static/scss/app.scss static/css/app.css",
-    "start": "node server.js & npm run build"
+    "start": "node server.js"
 
   },
   "repository": {
@@ -29,12 +29,13 @@
     "mongoose": "^6.2.4",
     "multer": "^1.4.4",
     "nodemon": "^2.0.15",
-    "serve": "^13.0.2"
-  },
-  "devDependencies": {
+    "serve": "^13.0.2",
     "dotenv": "^16.0.0",
     "eslint": "^8.10.0",
     "node-sass": "^7.0.1"
+  },
+  "devDependencies": {
+    
   },
   "engines": {
     "node": "v16.14.0",
