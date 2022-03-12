@@ -4,10 +4,10 @@
   "description": "Dit is een stukje tekst en meer met helper na startup",
   "main": "server.js",
   "scripts": {
-    "server": "node server.js && npm run build",
+    "server": "node server.js & npm run build",
     "lint": "eslint .",
     "styling": "node-sass --watch static/scss/app.scss static/css/app.css",
-    "start": "node server.js && npm run build"
+    "start": "node server.js & npm run build"
 
   },
   "repository": {
