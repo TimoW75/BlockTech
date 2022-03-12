@@ -11,8 +11,7 @@
     "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -39,5 +38,8 @@
     "dotenv": "^16.0.0",
     "eslint": "^8.10.0",
     "node-sass": "^7.0.1"
+  },
+  "engines": {
+    "node": "=v17.5.0"
   }
 }
