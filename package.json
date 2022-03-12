@@ -4,7 +4,7 @@
   "description": "Dit is een stukje tekst en meer met helper na startup",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js",
+    "server": "node server.js",
     "lint": "eslint .",
     "styling": "node-sass --watch static/scss/app.scss static/css/app.css"
   },
