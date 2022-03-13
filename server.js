@@ -16,7 +16,6 @@ const store = require('./controller/multer')
 const controller = require('./controller/controller')
 const imgSchema = require('./controller/schema');
 const uploadSchema = require('./controller/schema');
-let styleCheck = 0;
 require('dotenv').config()
 
 /*********************************************/
@@ -74,6 +73,8 @@ app.get('/style', (req, res) => {
 })
 
 app.post('/style', async (req, res) =>{
+
+    let styleCheck = 0;
 
     styleModel.exists({style:'urban'}, async  (err, doc) => { //zoeken voor style urban in de database
         const urbanExist = doc; // variable aanmaken 
