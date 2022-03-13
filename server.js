@@ -172,10 +172,12 @@ app.post('/style', async (req, res) =>{
     text();
 
     async function text (){
+        console.log(styleCheck)
         if(styleCheck == 0){
             await res.redirect('/style')
         }else{
             await res.redirect('/') 
+            console.log("styles were selected")
         }
     }
 
