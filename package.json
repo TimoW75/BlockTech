@@ -4,11 +4,10 @@
   "description": "Dit is een stukje tekst en meer met helper na startup",
   "main": "server.js",
   "scripts": {
-    "server": "node server.js & npm run build",
+    "server": "nodemon server.js",
     "lint": "eslint .",
     "styling": "node-sass --watch static/scss/app.scss static/css/app.css",
     "start": "node server.js"
-
   },
   "repository": {
     "type": "git",
@@ -23,22 +22,19 @@
   "homepage": "https://github.com/Timowerkhoven/BlockTech#readme",
   "dependencies": {
     "body-parser": "^1.19.2",
+    "dotenv": "^16.0.0",
+    "eslint": "^8.10.0",
     "express": "^4.17.2",
     "hbs": "^4.2.0",
     "mongodb": "^4.4.1",
     "mongoose": "^6.2.4",
     "multer": "^1.4.4",
+    "node-sass": "^7.0.1",
     "nodemon": "^2.0.15",
-    "serve": "^13.0.2",
-    "dotenv": "^16.0.0",
-    "eslint": "^8.10.0",
-    "node-sass": "^7.0.1"
-  },
-  "devDependencies": {
-    
+    "serve": "^13.0.2"
   },
   "engines": {
     "node": "v16.14.0",
-    "npm":"v8.3.1"
+    "npm": "v8.3.1"
   }
 }

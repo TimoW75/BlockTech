@@ -119,7 +119,6 @@ exports.homeAstro = async (req, res) => {
 
 exports.uploadsAstro = (req, res, next) => {
     const files = req.files;
-
     if(!files){
         const error = new Error('Please select file')
         error.httpStatusCode = 400
@@ -155,7 +154,7 @@ exports.uploadsAstro = (req, res, next) => {
     });
     Promise.all(result)
         .then( msg => {
-            res.redirect('/astro')
+            res.redirect('/astro')     
         })
         .catch(err =>{
             res.json(err)

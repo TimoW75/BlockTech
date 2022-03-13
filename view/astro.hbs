@@ -5,39 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/app.css">
+    <link rel="stylesheet" href="popupS.css">
     <title>Astro </title>
 </head>
 <body class="photopage">
 
-    <h1>Astro Photography</h1>
+    <section class="formHeader">
+        <h1>Astro Photography</h1>
+        <a href="/"><img src="/static/images/cross.png" class="back" alt="back button"> </a>
+    </section>
 
     <section class="imgGrid">
         {{#each imgAstro}}
             {{#each this}}
                 {{#if imageBase64}}
                 <section class="uploadImgGrid">
-                    <img src='data:{{contentType}};base64,{{imageBase64}}' alt="UploadedImage" class="uploadedImage">
+                     <img src='data:{{contentType}};base64,{{imageBase64}}' alt="UploadedImage" class="uploadedImage">
                 </section>
+
                 {{/if}}
             {{/each}}
         {{/each}}
     </section>
 
+    
     <form method="post" action="/astro" enctype="multipart/form-data">
-        <section class="buttonForm">
-            <label class="browse" for="formFile">New Img</label>
+        <section class="buttonFormLeft">
+            <label class="browse" for="formFile" id="k"> <img src="/static/images/folder.png" id="newImg" alt="profile picture">New Image</label>
             <input type="file"  name="imagesAstro" id="formFile" multiple>
-            <input type="submit" class="submitBtn" value="Upload">
+            <p id="noFile" class="notVisible">No file Selected</p>
+        </section>
+        <section class="buttonFormRight">
+            <label class="uploadLabel" for="upload"> <img src="/static/images/upload.png" id="uploadImg" alt="profile picture">Upload</label>
+            <input type="submit" class="submitBtn" id="upload" value="Upload">
         </section>
     </form>
+
 
     <form action="/remove" method="post">
         <section class="delete">
             <input type="hidden" id="remove">  
             <button type="submit" name="astro" value="astro" >Delete Style</button>
         </section>
-    </form>
 
+    <script src="../static/js/index.js"></script>
 
 </body>
 </html>

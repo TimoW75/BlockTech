@@ -6,3 +6,15 @@ h1{
 #filters{
     background-color: var(--bg-color);
 }
+
+#Filtermsg{
+    color: var(--txt-color);
+    font-size: 1.5em;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: underline 4px red;
+}
+
+.hidden{
+    display: none;
+}

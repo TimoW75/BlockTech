@@ -9,6 +9,11 @@
 </head>
 <body class="photopage">
 
+     <section class="formHeader">
+        <h1>Pet Photography</h1>
+        <a href="/"><img src="/static/images/cross.png" class="back" alt="back button"> </a>
+    </section>
+
      <section class="imgGrid">
         {{#each imgPet}}
             {{#each this}}
@@ -22,19 +27,22 @@
         {{/each}}
     </section>
 
-    <form action="/pet" enctype="multipart/form-data"  method="post">
-        <section class="uploadForm">
-            <section class="buttonForm">
-                <input type="file" class="form-control" name="imagesPet" id="formFile" multiple>
-                <input type="submit" class="btn" value="upload images">
-            </section>
+      <form method="post" action="/pet" enctype="multipart/form-data">
+        <section class="buttonFormLeft">
+            <label class="browse" for="formFile"> <img src="/static/images/folder.png" id="newImg" alt="profile picture">New Image</label>
+            <input type="file"  name="imagesPet" id="formFile" multiple>
+        </section>
+        <section class="buttonFormRight">
+            <label class="uploadLabel" for="upload"> <img src="/static/images/upload.png" id="uploadImg" alt="profile picture">Upload</label>
+            <input type="submit" class="submitBtn" id="upload" value="Upload">
         </section>
     </form>
+
 
     <form action="/remove" method="post">
         <section class="delete">
             <input type="hidden" id="remove">  
-            <button type="submit" name="pet" value="pet">Delete Style</button>
+            <button type="submit" name="pet" value="pet" >Delete Style</button>
         </section>
     </form>
 

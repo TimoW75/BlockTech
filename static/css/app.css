@@ -13,8 +13,10 @@
   .filtergrid input {
     color: transparent;
     height: 250px;
-    width: 175px;
-    appearance: none; }
+    width: 182px;
+    appearance: none;
+    border-radius: 30px;
+    margin: 0; }
   .filtergrid label {
     position: relative;
     top: -150px;
@@ -24,11 +26,13 @@
     font-family: Georgia, 'Times New Roman', Times, serif; }
 
 input:checked + label {
-  color: red; }
+  color: black; }
 
 input:checked {
-  opacity: 0.6;
-  background-color: var(--bg-color); }
+  opacity: 0.7;
+  border-radius: 30px;
+  background-color: darkgray;
+  border: 4px solid green; }
 
 p {
   padding-top: 100px;
@@ -194,10 +198,20 @@ h1 {
 #filters {
   background-color: var(--bg-color); }
 
+#Filtermsg {
+  color: var(--txt-color);
+  font-size: 1.5em;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-decoration: underline 4px red; }
+
+.hidden {
+  display: none; }
+
 .delete {
   position: absolute;
-  top: 82%;
-  left: 70%;
+  top: 94%;
+  left: 39.5%;
   text-align: center;
   height: 50px;
   border: none;
@@ -208,11 +222,13 @@ h1 {
   color: var(--txt-color); }
   .delete button {
     position: fixed;
-    background-color: #757575;
+    background-color: #1c1c1c;
+    border: 2px solid #d9d9d9;
     border-radius: 10px;
     width: 100px;
     height: 50px;
-    border: 2px solid #9e9e9e; }
+    color: var(--txt-color);
+    font-family: Georgia, 'Times New Roman', Times, serif; }
 
 .title {
   text-align: center; }
@@ -225,7 +241,8 @@ h3 {
   grid-template-columns: 1fr 1fr;
   text-align: center; }
   .imgGrid section {
-    height: 250px; }
+    height: 250px;
+    margin-top: 15px; }
 
 .uploadedImage {
   overflow: hidden;
@@ -238,20 +255,85 @@ h3 {
   display: none; }
 
 .submitBtn {
-  margin: 10px 0 0 65px; }
+  margin: 10px 0 0 65px;
+  display: none; }
 
 .browse {
   color: var(--txt-color);
   display: inline-block;
-  font-size: 1.5em;
-  margin: 20px 0 0 35px; }
+  font-size: 1.3em;
+  margin: 20px 0 0 35px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold; }
 
-.buttonForm {
+.buttonFormLeft {
   height: 175px;
   width: 175px;
   border-radius: 150px !important;
   background-color: #1c1c1c;
   border: 2px solid #d9d9d9;
   position: fixed;
-  top: 90%;
-  left: 30%; }
+  top: 88%;
+  left: -5%; }
+
+.buttonFormRight {
+  height: 175px;
+  width: 175px;
+  border-radius: 150px !important;
+  background-color: #1c1c1c;
+  border: 2px solid #d9d9d9;
+  position: fixed;
+  top: 88%;
+  left: 65%; }
+
+#newImg {
+  width: 40px;
+  margin-left: 35px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column; }
+
+.uploadLabel {
+  margin: 20px 0 0 45px;
+  color: var(--txt-color);
+  display: inline-block;
+  font-size: 1.3em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold; }
+
+#uploadImg {
+  width: 40px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column; }
+
+.formHeader {
+  display: grid;
+  grid-template-columns: 15% 1fr; }
+  .formHeader .back {
+    width: 30px; }
+  .formHeader h1 {
+    font-size: 1.8em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-right: 30px; }
+  .formHeader a {
+    grid-row-start: 1;
+    margin: auto; }
+
+#noFile {
+  font-size: 1.3em;
+  color: var(--txt-color);
+  position: absolute;
+  top: -60%;
+  left: 75%;
+  margin: auto;
+  width: 200px;
+  text-align: center; }
+
+.visible {
+  display: block; }
+
+.notVisible {
+  display: none; }

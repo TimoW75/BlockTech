@@ -1,65 +1,137 @@
 
+const urban = document.querySelector("#urban")
+const landscape = document.querySelector("#landscape")
+const portrait = document.querySelector("#portrait")
+const architecture = document.querySelector("#architecture")
+const astro = document.querySelector("#astro")
+const bw = document.querySelector("#bw")
+const aerial = document.querySelector("#aerial")
+const pet = document.querySelector("#pet")
+const msg = document.querySelector("#Filtermsg")
+const submit = document.querySelector("#submit")
 
-// const urban = document.querySelector(".urban")
+let checkedStyles = 0;
 
-// urban.addEventListener('click', () =>{
-//     urban.classList.remove('urban');
-//     urban.classList.add('urbanclicked');
-// })
+urban.addEventListener('click', () => {
+    if(urban.checked == true){
+        checkedStyles++;
+    }
+    else{
+        checkedStyles--;
+    }
+    if(checkedStyles < 0){
+        checkedStyles = 0;
+    }
+    check();
 
+})
 
-// const landscape = document.querySelector(".landscape")
+landscape.addEventListener('click', () => {
+    if(landscape.checked == true){
+        checkedStyles++;
+    }
+    else{
+        checkedStyles--;
+    }
+    if(checkedStyles < 0){
+        checkedStyles = 0;
+    }
+    check();
+})
 
-// landscape.addEventListener('click', () =>{
-//     landscape.classList.remove('landscape');
-//     landscape.classList.add('landscapeclicked');
-// })
+portrait.addEventListener('click', () => {
+    if(portrait.checked == true){
+        checkedStyles++;
+    }
+    else{
+        checkedStyles--;
+    }
+    if(checkedStyles < 0){
+        checkedStyles = 0;
+    }
+    check();
 
+})
 
-// const portrait = document.querySelector(".portrait")
+architecture.addEventListener('click', () => {
+    if(architecture.checked == true){
+        checkedStyles++;
+    }
+    else{
+        checkedStyles--;
+    }
+    if(checkedStyles < 0){
+        checkedStyles = 0;
+    }
+    check();
+})
 
-// portrait.addEventListener('click', () =>{
-//     portrait.classList.remove('portrait');
-//     portrait.classList.add('portraitclicked');
-// })
+astro.addEventListener('click', () => {
+    if(astro.checked == true){
+        checkedStyles++;
+    }
+    else{
+        checkedStyles--;
+    }
+    if(checkedStyles < 0){
+        checkedStyles = 0;
+    }
+    check();
 
+})
 
-// const architecture = document.querySelector(".architecture")
+bw.addEventListener('click', () => {
+    if(bw.checked == true){
+        checkedStyles++;
+    }
+    else{
+        checkedStyles--;
+    }
+    if(checkedStyles < 0){
+        checkedStyles = 0;
+    }
+    check();
+})
 
-// architecture.addEventListener('click', () =>{
-//     architecture.classList.remove('architecture');
-//     architecture.classList.add('architectureclicked');
+aerial.addEventListener('click', () => {
+    if(aerial.checked == true){
+        checkedStyles++;
+    }
+    else{
+        checkedStyles--;
+    }
+    if(checkedStyles < 0){
+        checkedStyles = 0;
+    }
+    check();
 
-// })
+})
 
+pet.addEventListener('click', () => {
+    if(pet.checked == true){
+        checkedStyles++;
+    }
+    else{
+        checkedStyles--;
+    }  
+    if(checkedStyles < 0){
+        checkedStyles = 0;
+    }
+    check();
+})
 
-// const astro = document.querySelector(".astro")
+function check (){
+    console.log(checkedStyles)
+    if(checkedStyles == 0){
+        msg.classList.remove("hidden")
+    } 
+    else{
+        msg.classList.add("hidden") 
+    }   
+}   
 
-// astro.addEventListener('click', () =>{
-//     astro.classList.remove('astro');
-//     astro.classList.add('astroclicked');
-// })
-
-
-// const bw = document.querySelector(".bw")
-
-// bw.addEventListener('click', () =>{
-//     bw.classList.remove('bw');
-//     bw.classList.add('bwclicked');
-// })
-
-
-// const aerial = document.querySelector(".aerial")
-
-// aerial.addEventListener('click', () =>{
-//     aerial.classList.remove('aerial');
-//     aerial.classList.add('aerialclicked');
-// })
-
-// const pet = document.querySelector(".pet")
-
-// pet.addEventListener('click', () =>{
-//     pet.classList.remove('pet');
-//     pet.classList.add('petclicked');
-// })
-
+submit.addEventListener('click', () => {
+    if(checkedStyles == 0){
+        window.alert("Please select a style")
+    }
+})

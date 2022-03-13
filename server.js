@@ -16,7 +16,7 @@ const store = require('./controller/multer')
 const controller = require('./controller/controller')
 const imgSchema = require('./controller/schema');
 const uploadSchema = require('./controller/schema');
-
+let styleCheck = 0;
 require('dotenv').config()
 
 /*********************************************/
@@ -79,7 +79,8 @@ app.post('/style', async (req, res) =>{
         const urbanExist = doc; // variable aanmaken 
         if(urbanExist == null & req.body.urban =='on'){ // als de style nog niet in de database staat en als de checkbox aangeklikt is op submit
             console.log('urban added')
-            urban.save(); // save de urban style naar de database
+            await urban.save(); // save de urban style naar de database
+            styleCheck++;
         }else{
             console.log('urban already in DB or not selected')
         }    
@@ -89,7 +90,9 @@ app.post('/style', async (req, res) =>{
         const landscapeExist = doc;
         if(landscapeExist == null & req.body.landscape == 'on'){
             console.log('landscape added')
-            landscape.save();
+            await landscape.save();
+            styleCheck++;
+
         }else{
             console.log('landscape already in DB or not selected')
         }    
@@ -100,6 +103,8 @@ app.post('/style', async (req, res) =>{
         if(portraitExist == null & req.body.portrait == 'on'){
             console.log('portrait added')
             await portrait.save();
+            styleCheck++;
+
         }else{
             console.log('portrait already in DB or not selected')
         }    
@@ -110,6 +115,8 @@ app.post('/style', async (req, res) =>{
         if(architectureExist == null & req.body.architecture =='on'){
             console.log('architecture added')
             await architecture.save();
+            styleCheck++;
+
         }else{
             console.log('architecture already in DB or not selected')
         }    
@@ -119,7 +126,9 @@ app.post('/style', async (req, res) =>{
         const astroExist = doc;
         if(astroExist == null & req.body.astro =='on'){
             console.log('astro added')
-            astro.save ();
+            await astro.save ();
+            styleCheck++;
+
         }else{
             console.log('astro already in DB or not selected')
         }    
@@ -130,6 +139,8 @@ app.post('/style', async (req, res) =>{
         if(bwExist == null & req.body.bw =='on'){
             console.log('bw added')
             await bw.save();
+            styleCheck++;
+
         }else{
             console.log('bw already in DB or not selected')
         }    
@@ -140,6 +151,8 @@ app.post('/style', async (req, res) =>{
         if(aerialExist == null & req.body.aerial =='on'){
             console.log('aerial added')
             await aerial.save()
+            styleCheck++;
+
         }else{
             console.log('aerial already in DB or not selected')
         }    
@@ -150,12 +163,28 @@ app.post('/style', async (req, res) =>{
         if(petExist == null & req.body.pet =='on'){
             console.log('pet added')
             await pet.save();
+            styleCheck++;
         }else{
             console.log('pet already in DB or not selected')
         }    
     });
     await new Promise(resolve => setTimeout(resolve, 550));
-    await res.redirect('/') 
+    text();
+
+    async function text (){
+        if(styleCheck == 0){
+            await res.redirect('/style')
+        }else{
+            await res.redirect('/') 
+        }
+    }
+
+
+    
+   
+
+
+
 
 })
 
@@ -185,19 +214,7 @@ app.post('/bw', store.array('imagesBW', 4), controller.uploadsBW)
 
 app.get('/aerial', controller.homeAerial)
 
-app.post('/aerial', store.array('imagesAerial', 4), controller.uploadsAerial,
-(req, res) => { 
-    console.log(req.body)
-    const removeAerial = req.body.remove
-    if(removeAerial == 'remove'){
-        aerial.remove({style: 'aerial'}) 
-        console.log("removed")
-        res.redirect('/');
-    }
-    const imagesAerial = req.body.imagesAerial
-    if(imagesAerial == 'upload'){
-    }
-})
+app.post('/aerial', store.array('imagesAerial', 4), controller.uploadsAerial)
 
 app.get('/pet', controller.homePet)
 

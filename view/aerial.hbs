@@ -10,7 +10,10 @@
 
 <body class="photopage">
 
-    <h1>Aerial Photography</h1>
+    <section class="formHeader">
+        <h1>Aerial Photography</h1>
+        <a href="/"><img src="/static/images/cross.png" class="back" alt="back button"> </a>
+    </section>
 
     <section class="imgGrid">
         {{#each imgAerial}}
@@ -24,13 +27,17 @@
         {{/each}}
     </section>
 
-    <form method="POST" action="/aerial" enctype="multipart/form-data">
-        <section class="uploadForm">
-            <section class="buttonForm">
-                <input type="file" class="form-control" name="imagesAerial" id="formFile" multiple>
-                <button type="submit" class="" name="imagesAerial" value="upload">
-            </section>
+       <form method="post" action="/aerial" enctype="multipart/form-data">
+        <section class="buttonFormLeft">
+            <label class="browse" for="formFile"> <img src="/static/images/folder.png" id="newImg" alt="profile picture">New Image</label>
+            <input type="file"  name="imagesAerial" id="formFile" multiple>
         </section>
+        <section class="buttonFormRight">
+            <label class="uploadLabel" for="upload"> <img src="/static/images/upload.png" id="uploadImg" alt="profile picture">Upload</label>
+            <input type="submit" class="submitBtn" id="upload" value="Upload">
+        </section>
+    </form>
+
 
     <form action="/remove" method="post">
         <section class="delete">
