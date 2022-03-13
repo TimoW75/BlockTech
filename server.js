@@ -1,9 +1,9 @@
 const express = require('express')
-const app = express()
+const app = express();
 const PORT = process.env.PORT || 3000
 const Handlebars = require("handlebars");
 const sass = require('node-sass');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 const connectDB = require('./controller/db')
 const mongo = require('mongodb')
 const mongoose = require('mongoose');
@@ -13,10 +13,23 @@ const req = require('express/lib/request');
 const { on } = require('nodemon');
 const { redirect } = require('express/lib/response');
 const store = require('./controller/multer')
-const controller = require('./controller/controller')
-const imgSchema = require('./controller/schema');
+const controller = require('./controller/controller');
 const uploadSchema = require('./controller/schema');
+const styleShemaFile = require('./controller/style');
+const styleModel = require('./controller/style');
+
 require('dotenv').config()
+
+styleModel();
+
+const urban = new styleModel({ style: 'urban' , name: 'Urban Photography'});
+const landscape = new styleModel({ style: 'landscape' , name: 'Landscape Photography'});
+const portrait = new styleModel({ style: 'portrait' , name: 'Portrait Photography'});
+const architecture = new styleModel({ style: 'architecture' , name: 'Architecture Photography'});
+const bw = new styleModel({ style: 'bw' , name: 'Black and White'});
+const aerial = new styleModel({ style: 'aerial' , name: 'Aerial Photography'});
+const pet = new styleModel({ style: 'pet' , name: 'Pet Photography'});
+const astro = new styleModel({ style: 'astro' , name: 'Astro Photography'});
 
 /*********************************************/
 /*Server Routes, Schemas en Models*/
@@ -32,30 +45,8 @@ app.set('view engine', 'hbs');
 app.set('views', 'view');
 
 
-const styleSchema = new mongoose.Schema({ 
-    style: String,  
-    name: String,
-});
-
-
-const styleModel = mongoose.model('styles', styleSchema)
-
-
-const urban = new styleModel({ style: 'urban' , name: 'Urban Photography'});
-const landscape = new styleModel({ style: 'landscape' , name: 'Landscape Photography'});
-const portrait = new styleModel({ style: 'portrait' , name: 'Portrait Photography'});
-const architecture = new styleModel({ style: 'architecture' , name: 'Architecture Photography'});
-const bw = new styleModel({ style: 'bw' , name: 'Black and White'});
-const aerial = new styleModel({ style: 'aerial' , name: 'Aerial Photography'});
-const pet = new styleModel({ style: 'pet' , name: 'Pet Photography'});
-const astro = new styleModel({ style: 'astro' , name: 'Astro Photography'});
-
 
 styleModel.deleteMany({},  ( err ) => {});
-
-
-
-
 
 
 
@@ -181,13 +172,6 @@ app.post('/style', async (req, res) =>{
             console.log("styles were selected")
         }
     }
-
-
-    
-   
-
-
-
 
 })
 

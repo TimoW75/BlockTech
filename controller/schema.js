@@ -17,7 +17,6 @@ const uploadSchema = new mongoose.Schema({
 })
 
 
-
 module.exports = UploadModelUrban = mongoose.model('imgUrban', uploadSchema)
 module.exports = UploadModelAerial = mongoose.model('imgAerial', uploadSchema)
 module.exports = UploadModelAstro = mongoose.model('imgAstro', uploadSchema)
