@@ -156,7 +156,7 @@ a {
 
 .profiletext {
   text-align: center;
-  color: white;
+  color: var(--txt-color);
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 2em;
   height: 40px;
