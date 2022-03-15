@@ -36,7 +36,7 @@ http://localhost:3000/
 ```
 
 # Database
-Het aanmaken van de database en meer informatie erover kunt u [hier](https://github.com/TimoW75/BlockTech/blob/main/Database.md) vinden. Hieronder staat een afbeelding van mijn database structuur.
+Het aanmaken van de database en meer informatie erover kunt u [hier](https://github.com/TimoW75/BlockTech/wiki/Database) vinden. Hieronder staat een afbeelding van mijn database structuur.
 <img width="100%" alt="DB Structure" src="https://github.com/TimoW75/BlockTech/blob/main/static/images/dbstructure.png">
 
 
