@@ -1,9 +1,9 @@
 # Click
 Voor de block tech opdracht heb ik een applicatie ontwikkeld die fotografen met elkaar verbind door middel van hun fotografie stijl. ALs eerst moet je de stijlen die jij gebruikt aanklikken en vervolgens kan je hier foto's bij uploaden. 
 
-<img width="30%" alt="DB Structure" src="https://github.com/TimoW75/BlockTech/blob/main/static/images/homescreen.png">
-<img width="30%" alt="DB Structure" src="https://github.com/TimoW75/BlockTech/blob/main/static/images/stylescreen.png">
-<img width="30%" alt="DB Structure" src="https://github.com/TimoW75/BlockTech/blob/main/static/images/urbanpage.png">
+<img width="30%" alt="DB Structure" src="https://github.com/TimoW75/BlockTech/blob/main/static/images/homescreen.png"><img width="30%" alt="DB Structure" src="https://github.com/TimoW75/BlockTech/blob/main/static/images/stylescreen.png"><img width="30%" alt="DB Structure" src="https://github.com/TimoW75/BlockTech/blob/main/static/images/urbanpage.png">
+
+
 
 
 # Feature 
