@@ -1,8 +1,5 @@
 const multer = require('multer')
-
-
 // set storage
-
 let storage = multer.diskStorage({
     destination: function( req, file, cb){
         cb(null, './static/upload')
@@ -13,5 +10,4 @@ let storage = multer.diskStorage({
         cb(null, file.fieldname + '-'+Date.now()+ext)
     }
 })
-
 module.exports = store =  multer({storage:storage})
