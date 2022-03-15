@@ -19,6 +19,7 @@
                 {{#if imageBase64}}
                 <section class="uploadImgGrid">
                      <img src='data:{{contentType}};base64,{{imageBase64}}' alt="UploadedImage" class="uploadedImage">
+                    {{! maak een image aan met als data het contentype, geef vervolgens de base64 code mee}}
                 </section>
                 {{/if}}
             {{/each}}

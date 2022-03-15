@@ -12,16 +12,18 @@ const async = require('hbs/lib/async');
 const req = require('express/lib/request');
 const { on } = require('nodemon');
 const { redirect } = require('express/lib/response');
-const store = require('./controller/multer')
-const controller = require('./controller/controller');
+const store = require('./controller/multer') // multer funcite voor het opslaan van plaatjes
+const controller = require('./controller/controller'); // controller bestand
 const uploadSchema = require('./controller/schema');
 const styleShemaFile = require('./controller/style');
-const styleModel = require('./controller/style');
+const styleModel = require('./controller/style'); // stylmodel uit style.js
 
 require('dotenv').config()
 
-styleModel();
 
+// model voor het toevoegen van nieuwe stijls
+styleModel();
+// alle ingevulde modellen voor een nieuwe sijlt
 const urban = new styleModel({ style: 'urban' , name: 'Urban Photography'});
 const landscape = new styleModel({ style: 'landscape' , name: 'Landscape Photography'});
 const portrait = new styleModel({ style: 'portrait' , name: 'Portrait Photography'});
@@ -32,40 +34,40 @@ const pet = new styleModel({ style: 'pet' , name: 'Pet Photography'});
 const astro = new styleModel({ style: 'astro' , name: 'Astro Photography'});
 
 /*********************************************/
-/*Server Routes, Schemas en Models*/
+/*Server Routes*/
 /*********************************************/
-connectDB();
+connectDB(); // connect database
 
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 app.use('/static',express.static('static'))
-app.set('view engine', 'hbs');
+app.set('view engine', 'hbs'); // view engine HBS
 app.set('views', 'view');
 
 
 
-styleModel.deleteMany({},  ( err ) => {});
+styleModel.deleteMany({},  ( err ) => {}); //delete al de styles uit de database wanneer de server opnieuw wordt opgestard 
 
 
 
 app.get('/',  (req, res) => {
     styleModel.find({}, async (err, styles) => {
         await res.render('profiel.hbs', {
-            styleList: styles
+            styleList: styles // data doorgeven. Welke stijlen staan in de database
         })
     })
 })
 
 app.get('/style', (req, res) => { 
-    res.render('filter.hbs')
+    res.render('filter.hbs') // render de filter pagina
     res.status(200)
 })
 
 app.post('/style', async (req, res) =>{
 
-    let styleCheck = 0;
+    let styleCheck = 0; // variable voor het bekijken of er een stijl is aangeklikt
 
     styleModel.exists({style:'urban'}, async  (err, doc) => { //zoeken voor style urban in de database
         const urbanExist = doc; // variable aanmaken 
@@ -74,9 +76,11 @@ app.post('/style', async (req, res) =>{
             await urban.save(); // save de urban style naar de database
             styleCheck++;
         }else{
-            console.log('urban already in DB or not selected')
+            console.log('urban already in DB or not selected') // console log voor als de stijl al in de database staat of niet aangeklikt was
         }    
     });
+
+    // deze functie herhaal zich nog 7 keer met verschillende variable voor alle verschillende checkboxes
 
     styleModel.exists({style:'landscape'}, async  (err, doc) => {
         const landscapeExist = doc;
@@ -175,17 +179,17 @@ app.post('/style', async (req, res) =>{
 
 })
 
-app.get('/urban', controller.homeUrban)
+app.get('/urban', controller.homeUrban) // render de homeUrban functie
 
-app.post('/urban', store.array('imagesUrban', 4), controller.uploadsUrban)
+app.post('/urban', store.array('imagesUrban', 4), controller.uploadsUrban) //stuur het plaatje naar de database
 
-app.get('/landscape', controller.homeLandscape)
+app.get('/landscape', controller.homeLandscape) // render de homeLandscape funcite
 
-app.post('/landscape', store.array('imagesLandscape', 4), controller.uploadsLandscape)
+app.post('/landscape', store.array('imagesLandscape', 4), controller.uploadsLandscape) // stuur plaatje naar de database
 
-app.get('/portrait', controller.homePortrait)
+app.get('/portrait', controller.homePortrait) // render homePortrait functie
 
-app.post('/portrait', store.array('imagesPortrait', 4), controller.uploadsPortrait) 
+app.post('/portrait', store.array('imagesPortrait', 4), controller.uploadsPortrait) // stuur plaatje naar de database
 
 app.get('/architecture', controller.homeArchitecture)
 
@@ -212,8 +216,8 @@ app.get('*', (req, res) => {
     res.send('Not found..')
 })
 
-app.post('/remove', (req, res) =>{
-    const petBtn = req.body.pet
+app.post('/remove', (req, res) =>{ // knop voor het weghalven van een stijl
+    const petBtn = req.body.pet // request de value van de button die is aangeklikt
     const astroBtn = req.body.astro
     const urbanBtn = req.body.urban
     const bwBtn = req.body.bw
@@ -221,11 +225,11 @@ app.post('/remove', (req, res) =>{
     const landscapeBtn = req.body.landscape
     const portraitBtn = req.body.portrait
     const architectureBtn = req.body.architecture
-    if(petBtn == 'pet'){
-        pet.remove({style: 'pet'})
+    if(petBtn == 'pet'){ // kijken of de petBtn is aangeklikt
+        pet.remove({style: 'pet'}) // haal de pet stijl uit de database
     }
-    if(astroBtn == 'astro'){
-        astro.remove({style: 'astro'})      
+    if(astroBtn == 'astro'){ // kijken of de astro button is aangeklikt
+        astro.remove({style: 'astro'}) // verwijder astro stijl uit database  
     }
     if(urbanBtn == 'urban'){
         urban.remove({style: 'urban'})       
@@ -248,5 +252,5 @@ app.post('/remove', (req, res) =>{
     res.redirect('/')
 })
 
-app.listen(PORT)  
+app.listen(PORT)  // gebruik deze poort
 

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const connectDB = () => {
+const connectDB = () => {// functie voor connectie met de database
     try{
         mongoose.connect(process.env.CONNECTION_STRING,{
             useNewUrlParser: true,
@@ -13,5 +13,5 @@ const connectDB = () => {
     }
 }
 
-module.exports = connectDB;
+module.exports = connectDB; // export voor gebruik in server.js
 

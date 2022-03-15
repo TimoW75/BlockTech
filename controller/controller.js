@@ -2,56 +2,64 @@ const UploadModel = require('./schema')
 const fs = require('fs')
 const async = require('hbs/lib/async')
 
-exports.homePet = async (req, res) =>{
-    const all_imagesPet = await UploadModelPet.find()
-    res.render('../view/pet.hbs', {imgPet: all_imagesPet})
+exports.homePet = async (req, res) =>{ // deze funcite wordt aangeroepen op de app.get('/pet)
+    const all_imagesPet = await UploadModelPet.find() // kijk of er images staan in de database
+    res.render('../view/pet.hbs', {imgPet: all_imagesPet}) // geef deze images door naar Handlebars
 }
 
 
-exports.uploadsPet = (req, res, next) =>{
-    const files = req.files;
+exports.uploadsPet = (req, res, next) =>{ // deze functie wordt uitgevoerd op de app.post('/pet') want de functie wordt al geexporteerd.
+    const files = req.files; //request de file
 
-    if(!files){
-        const error = new Error('Please select file')
+    if(!files){ // als er geen files zijn
+        const error = new Error('Please select file') 
         error.httpStatusCode = 400
         return next(error)
     }
 
-    // convert imgs to base64 encoding
-    let imgArray = files.map((file) =>{
-        let img = fs.readFileSync(file.path)
+    // zet  img om naar base64 encoding
+    let imgArray = files.map((file) =>{ // loop over elke file
+        let img = fs.readFileSync(file.path) // lees het bestand en stuur de content door in de variable img
 
-        return encode_img = img.toString('base64')
+        return encode_img = img.toString('base64') // encode image naar base64 code
     })
 
-    let result = imgArray.map((src, index) =>{
+    let result = imgArray.map((src, index) =>{ // loop over de code voor elke file
         //create object to stare data in mongodb collection
-        let finalImg= {
-            filename:files[index].originalname,
-            contenType: files[index].mimetype,
-            imageBase64:src
+        let finalImg= { 
+            filename:files[index].originalname, // geef de filename mee
+            contenType: files[index].mimetype, // contentype meegeven
+            imageBase64:src // base64 code meegeven 
         }
 
-        let newUploadPet = new UploadModelPet(finalImg)
-        return newUploadPet
-            .save()
-            .catch(error =>{
+        let newUploadPet = new UploadModelPet(finalImg) // maak een nieuw item aan voor in de database met de variable van de finalimg 
+        return newUploadPet // return de variable
+            .save() // save naar de database
+            .catch(error =>{ // als er een error komt
                 if(error){
-                    if(error,name === 'MongoError' && error.code === 11000)
-                    return Promise.reject({error: `Duplicated img`})
+                    if(error,name === 'MongoError' && error.code === 11000) // bekijk of er een mongoError is, en als de error code 11000 is
+                    return Promise.reject({error: `Duplicated img`}) // dan bestaat het plaatje al in de database. Reject de promise
                 }
-                return Promise.reject({ error: error.message || `Cannot upload`})
+                return Promise.reject({ error: error.message || `Cannot upload`}) // reject the promise en geef een error message
             })
 
     });
     Promise.all(result)
         .then( msg => {
-            res.redirect('/pet')
+            res.redirect('/pet') // redirecht naar de pet pagina
         })
         .catch(err =>{
             res.json(err)
         })
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////Bovenstaande functie herhaald zich ook nog 7 keer met verschillende variable///////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 //////////////////////////////////////////////////////////////////////////

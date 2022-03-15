@@ -24,10 +24,10 @@
       
   
 
-        {{#each styleList}}
-            <a href="{{style}}">
-                <section class="{{style}}">
-                    <p>{{name}} </p>
+        {{#each styleList}} {{! voor elke item in de stijl database}}
+            <a href="{{style}}"> {{!maak een link aan naar de stijl pagina}}
+                <section class="{{style}}"> {{! maak een section aan met als class de naam van de stijl}}
+                    <p>{{name}} </p> {{! een paragraaf met de naam van de stijl}}
                 </section>    
             </a>
         {{/each}}

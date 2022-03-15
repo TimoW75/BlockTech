@@ -16,11 +16,12 @@
     </section>
 
     <section class="imgGrid">
-        {{#each imgAerial}}
+        {{#each imgAerial}} {{! voor elke image in de database}}
             {{#each this}}
-                {{#if imageBase64}}
+                {{#if imageBase64}} {{! en als de img base64 is}}
                 <section class="uploadImgGrid">
                      <img src='data:{{contentType}};base64,{{imageBase64}}' alt="UploadedImage" class="uploadedImage">
+                     {{! maak een image aan met als data het contentype, geef vervolgens de base64 code mee}}
                 </section>
                 {{/if}}
             {{/each}}
