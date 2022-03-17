@@ -1,3 +1,13 @@
+const urbanBox = document.querySelector("#urbanBox")
+const landscapeBox = document.querySelector("#landscapeBox")
+const portraitBox = document.querySelector("#portraitBox")
+const architectureBox = document.querySelector("#architectureBox")
+const astroBox = document.querySelector("#astroBox")
+const bwBox = document.querySelector("#bwBox")
+const aerialBox = document.querySelector("#aerialBox")
+const petBox = document.querySelector("#petBox")
+const msg = document.querySelector("#Filtermsg")
+const submit = document.querySelector("#submit")
 
 const urban = document.querySelector("#urban")
 const landscape = document.querySelector("#landscape")
@@ -7,15 +17,21 @@ const astro = document.querySelector("#astro")
 const bw = document.querySelector("#bw")
 const aerial = document.querySelector("#aerial")
 const pet = document.querySelector("#pet")
-const msg = document.querySelector("#Filtermsg")
-const submit = document.querySelector("#submit")
+
+
+
+let options = {
+    threshold: 1
+}
+const observer = new IntersectionObserver(imageObserver, options);
 
 // maak alle variable aan voor de checkboxes
-
 let checkedStyles = 0;
 
+
+
 urban.addEventListener('click', () => {
-    if(urban.checked == true){ // als de checkbox is aangeklikt
+    if(urbanBox.checked == true){ // als de checkbox is aangeklikt
         checkedStyles++; // stijl ++
     }
     else{
@@ -29,7 +45,7 @@ urban.addEventListener('click', () => {
 }) // deze funtie herhaald zich ook steeds voor elke checkbox.
 
 landscape.addEventListener('click', () => {
-    if(landscape.checked == true){
+    if(landscapeBox.checked == true){
         checkedStyles++;
     }
     else{
@@ -42,7 +58,7 @@ landscape.addEventListener('click', () => {
 })
 
 portrait.addEventListener('click', () => {
-    if(portrait.checked == true){
+    if(portraitBox.checked == true){
         checkedStyles++;
     }
     else{
@@ -56,7 +72,7 @@ portrait.addEventListener('click', () => {
 })
 
 architecture.addEventListener('click', () => {
-    if(architecture.checked == true){
+    if(architectureBox.checked == true){
         checkedStyles++;
     }
     else{
@@ -69,7 +85,7 @@ architecture.addEventListener('click', () => {
 })
 
 astro.addEventListener('click', () => {
-    if(astro.checked == true){
+    if(astroBox.checked == true){
         checkedStyles++;
     }
     else{
@@ -83,7 +99,7 @@ astro.addEventListener('click', () => {
 })
 
 bw.addEventListener('click', () => {
-    if(bw.checked == true){
+    if(bwBox.checked == true){
         checkedStyles++;
     }
     else{
@@ -96,7 +112,7 @@ bw.addEventListener('click', () => {
 })
 
 aerial.addEventListener('click', () => {
-    if(aerial.checked == true){
+    if(aerialBox.checked == true){
         checkedStyles++;
     }
     else{
@@ -110,7 +126,7 @@ aerial.addEventListener('click', () => {
 })
 
 pet.addEventListener('click', () => {
-    if(pet.checked == true){
+    if(petBox.checked == true){
         checkedStyles++;
     }
     else{
@@ -136,4 +152,50 @@ submit.addEventListener('click', () => {
     if(checkedStyles == 0){
         window.alert("Please select a style") // als er geen stijl is geselecteerd en toch op de submit knop wordt gedrukt geef een alert.
     }
+})
+
+
+function imageObserver(entries, observer){
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            const img = entry.target;
+            if(img.htmlFor == 'urban'){
+                urban.classList.remove("notLoaded")
+            }
+            if(img.htmlFor == 'landscape'){
+                landscape.classList.remove("notLoaded")
+
+            }
+            if(img.htmlFor == 'portrait'){
+                portrait.classList.remove("notLoaded")
+
+            }
+            if(img.htmlFor == 'architecture'){
+                architecture.classList.remove("notLoaded")
+
+            }
+            if(img.htmlFor == 'astro'){
+                astro.classList.remove("notLoaded")
+
+            }
+            if(img.htmlFor == 'bw'){
+                bw.classList.remove("notLoaded")
+
+            }
+            if(img.htmlFor == 'aerial'){
+                aerial.classList.remove("notLoaded")
+
+            }
+            if(img.htmlFor == 'pet'){
+                pet.classList.remove("notLoaded")
+
+            }
+        }
+    } )
+}
+
+let imgs = document.querySelectorAll('label.lazy')
+
+imgs.forEach( img =>{
+    observer.observe(img);
 })

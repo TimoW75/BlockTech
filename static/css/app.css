@@ -25,11 +25,8 @@
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif; }
 
-input:checked + label {
-  color: black; }
-
 input:checked {
-  opacity: 0.7;
+  opacity: 0.8;
   border-radius: 30px;
   background-color: darkgray;
   border: 4px solid green; }
@@ -44,63 +41,63 @@ p {
 a {
   text-decoration: none; }
 
-.urban {
+#urban {
   background-image: url(/static/images/urban.jpg);
   background-size: cover; }
 
-.urbanclicked {
+#urbanclicked {
   display: none; }
 
-.landscape {
+#landscape {
   background-image: url(/static/images/landscape.jpg);
   background-size: cover; }
 
-.landscapeclicked {
+#landscapeclicked {
   display: none; }
 
-.portrait {
+#portrait {
   background-image: url(/static/images/portrait.jpg);
   background-size: cover; }
 
-.portraitclicked {
+#portraitclicked {
   display: none; }
 
-.architecture {
+#architecture {
   background-image: url(/static/images/architecture.jpg);
   background-size: cover; }
 
-.architectureclicked {
+#architectureclicked {
   display: none; }
 
-.astro {
+#astro {
   background-image: url(/static/images/astro.jpg);
   background-size: cover; }
 
-.astroclicked {
+#astroclicked {
   display: none; }
 
-.bw {
+#bw {
   background-image: url(/static/images/bw.jpg);
   background-size: cover; }
 
-.bwclicked {
+#bwclicked {
   display: none; }
 
-.aerial {
+#aerial {
   background-image: url(/static/images/aerial.jpg);
   background-size: cover; }
 
-.aerialclicked {
+#aerialclicked {
   display: none; }
 
-.pet {
+#pet {
   background-image: url(/static/images/pet.jpeg);
   background-size: cover; }
 
-.petclicked {
+#petclicked {
   display: none; }
 
-.photopage {
+#photopage {
   background-color: var(--bg-color); }
 
 .button {
@@ -207,6 +204,30 @@ h1 {
 
 .hidden {
   display: none; }
+
+#aerial.notLoaded {
+  background-image: none; }
+
+#urban.notLoaded {
+  background-image: none; }
+
+#landscape.notLoaded {
+  background-image: none; }
+
+#portrait.notLoaded {
+  background-image: none; }
+
+#architecture.notLoaded {
+  background-image: none; }
+
+#astro.notLoaded {
+  background-image: none; }
+
+#bw.notLoaded {
+  background-image: none; }
+
+#pet.notLoaded {
+  background-image: none; }
 
 .delete {
   position: absolute;

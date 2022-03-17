@@ -18,47 +18,48 @@
 
     <h2 id="Filtermsg">Please select 1 or more styles</h2>
     <form method="post" action="style" class="filtergrid">
-        <section class="urban">
-            <input type="checkbox" name="urban" id="urban">
-            <label for="urban">Urban Photography</label>
+        
+        <section id="urban" class="notLoaded">
+            <input type="checkbox" name="urban" id="urbanBox">
+            <label for="urban" class="lazy">Urban Photography</label>
         </section>    
     
-        <section class="landscape">
-           <input type="checkbox" name="landscape" id="landscape">
-           <label for="landscape">Landscape Photography</label>
+        <section id="landscape" class="notLoaded">
+           <input type="checkbox" name="landscape" id="landscapeBox" >
+           <label for="landscape" class="lazy">Landscape Photography</label>
         </section> 
 
-        <section class="portrait">
-            <input type="checkbox" name="portrait" id="portrait">
-            <label for="portrait">Portrait Photography</label>
+        <section id="portrait"class="notLoaded" >
+            <input type="checkbox" name="portrait" id="portraitBox" >
+            <label for="portrait" class="lazy">Portrait Photography</label>
         </section>    
 
-        <section class="architecture">
-            <input type="checkbox" name="architecture" id="architecture">
-            <label for="architecture">Architecture Photography</label>
+        <section id="architecture"class="notLoaded" >
+            <input type="checkbox" name="architecture" id="architectureBox" >
+            <label for="architecture" class="lazy">Architecture Photography</label>
         </section>      
 
-        <section class="astro">
-            <input type="checkbox" name="astro" id="astro">
-            <label for="astro">Astro Photography</label>
+        <section id="astro" class="notLoaded" >
+            <input type="checkbox" name="astro" id="astroBox" >
+            <label for="astro" class="lazy">Astro Photography</label>
         </section>    
 
-        <section class="bw">
-            <input type="checkbox" name="bw" id="bw">
-            <label for="bw">Black and White Photography</label>
+        <section id="bw" class="notLoaded">
+            <input type="checkbox" name="bw" id="bwBox">
+            <label for="bw" class="lazy">Black and White Photography</label>
         </section>
 
-        <section class="aerial">
-            <input type="checkbox" name="aerial" id="aerial">
-            <label for="aerial">Aerial Photography</label>
+        <section id="aerial" class="notLoaded">
+            <input type="checkbox" name="aerial" id="aerialBox">
+            <label for="aerial" class="lazy">Aerial Photography</label>
         </section>
    
-        <section class="pet">
-            <input type="checkbox" name="pet" id="pet">
-            <label for="pet">Pet Photography</label>
+        <section id="pet" class="notLoaded">
+            <input type="checkbox" name="pet" id="petBox">
+            <label for="pet" class="lazy">Pet Photography</label>
         </section>
 
-        <section class="button">    
+        <section class="button" class="notLoaded">    
             <button type="submit" value="Submit" id="submit">Select</button>
         </section>
     </form>
