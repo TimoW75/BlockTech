@@ -18,12 +18,10 @@ const bw = document.querySelector("#bw")
 const aerial = document.querySelector("#aerial")
 const pet = document.querySelector("#pet")
 
-
-
 let options = {
-    threshold: 1
+    threshold: 1  // threshold van 1 geeft aan dat het plaatje 100% zichtbaar moet zijn voordat deze wordt geladen.
 }
-const observer = new IntersectionObserver(imageObserver, options);
+const observer = new IntersectionObserver(imageObserver, options); // maak een nieuwe intersection observer aan
 
 // maak alle variable aan voor de checkboxes
 let checkedStyles = 0;
@@ -155,11 +153,11 @@ submit.addEventListener('click', () => {
 })
 
 
-function imageObserver(entries, observer){
+function imageObserver(entries, observer){ // funcite voor het kijken naar welke plaatjes in beeld zijn
     entries.forEach(entry => {
         if(entry.isIntersecting){
             const img = entry.target;
-            if(img.htmlFor == 'urban'){
+            if(img.htmlFor == 'urban'){ // kijk welk plaatje het is
                 urban.classList.remove("notLoaded")
             }
             if(img.htmlFor == 'landscape'){
@@ -194,8 +192,8 @@ function imageObserver(entries, observer){
     } )
 }
 
-let imgs = document.querySelectorAll('label.lazy')
+let imgs = document.querySelectorAll('label.lazy') // pak elke label tag met de class lazy
 
 imgs.forEach( img =>{
-    observer.observe(img);
+    observer.observe(img); // observe elk plaatje
 })
