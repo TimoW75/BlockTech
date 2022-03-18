@@ -97,7 +97,7 @@ a {
 #petclicked {
   display: none; }
 
-#photopage {
+.photopage {
   background-color: var(--bg-color); }
 
 .button {

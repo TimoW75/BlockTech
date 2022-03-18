@@ -23,10 +23,9 @@
         <h2 id="mystyle">My Styles</h2>
       
   
-
         {{#each styleList}} {{! voor elke item in de stijl database}}
             <a href="{{style}}"> {{!maak een link aan naar de stijl pagina}}
-                <section class="{{style}}"> {{! maak een section aan met als class de naam van de stijl}}
+                <section id="{{style}}"> {{! maak een section aan met als class de naam van de stijl}}
                     <p>{{name}} </p> {{! een paragraaf met de naam van de stijl}}
                 </section>    
             </a>
